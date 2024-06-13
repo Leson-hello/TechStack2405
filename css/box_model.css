@@ -1,0 +1,32 @@
+div {
+    width: 400px;
+    float: left;
+    /* float có nghĩa là dồn lên  */
+    margin: 15px;
+    /* margin là biên độ ,khoảng cách bên ngoài từ boder ra bên ngoài  */
+    border: 1px solid red;
+    padding: 10px;
+    /* padding là biên độ ,khoảng cách bên ngoài từ boder vào bên trong  */
+    background-color: bisque;
+    border-radius: 10px;
+    transition: all 500ms;
+}
+
+div:hover {
+    background-color: aquamarine;
+    transform: translate(200px,200px); 
+    /* Dương thì phải , lên || Dấu trừ thì ngươc lại */
+    /* Di chuyển cái hộp  */
+    transform: rotate(45deg);
+    transform: scale(1.15);
+
+}
+#special,#special2{
+    /* Dùng dấu phẩy "," để dùng id khác nhau */
+    background-color: rgb(54, 54, 107);
+}
+img {
+    max-width: 100%;
+    /* Lấy 100%  px của khối hộp (div) 
+    VD: width: 400px; =>img =  400px  */
+}

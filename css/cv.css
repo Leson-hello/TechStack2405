@@ -1,0 +1,52 @@
+h1{
+    font-size: xx-large;
+    font-weight: bold;
+    color: black;
+}
+h2{
+    font-size: large;
+    font-weight: bold;
+    color: black; 
+}
+p1{
+    float: right;
+}
+h3{
+    font-size: large;
+    font-weight: bold;
+    color: black; 
+}
+
+hr {
+    border: 0;
+    height: 3px;
+    background-color: #000;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+li{
+    font-weight: bold;
+    font-weight: bold;
+    color: black;
+}
+ul{
+    color: black;
+}
+.skills ul {
+    columns: 2;
+}
+
+.skills ul li {
+    margin-bottom: 5px;
+}
+
+.languages p {
+    margin-bottom: 5px;
+}
+p3{
+    font-weight: normal
+}
+p4{
+    font-weight: bold;
+    color: black;
+}

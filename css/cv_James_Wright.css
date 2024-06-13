@@ -1,0 +1,25 @@
+h1{
+    font-size: 40px; 
+}
+hr{
+    height: 3px;
+    background-color: #000;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.header {
+    display: flex;
+    justify-content: space-between; /* Đặt khoảng cách đều giữa các phần tử con trong container */
+    align-items: center; /* Căn giữa các phần tử con theo chiều dọc trong container */
+    padding: 20px;
+    border-bottom: 2px solid black;
+}
+.address, .contact-info {
+    flex: 1; /* Cho các phần tử này chiếm khoảng cách bằng nhau */
+}
+.address {
+    text-align: left; /* Căn trái cho phần tử address */
+}
+.contact-info {
+    text-align: right; /* Căn phải cho phần tử contact-info */
+}

@@ -1,0 +1,35 @@
+h1{
+    color:rgb(150, 54, 54);
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-align: justify;
+    /* căn lề*/
+    text-decoration: overline;
+     /* gạch trên câu*/
+     text-transform: capitalize;
+     /* Viết Hoa viết thường */
+     line-height: 1.5;
+     /*Công thức : 16 px* 1,5 */
+     width: 200px;
+     /*Độ cao khối*/
+     border-bottom: solid  1px;
+     /*cái để ngăn cách cách khối */
+     background-color: aliceblue;
+     display: flex;
+      /* Sử dụng Flexbox để tạo một container linh hoạt cho phần header */
+     justify-content: space-between; 
+     /* Đặt khoảng cách đều giữa các phần tử con trong container */
+     flex: 1; 
+     /* Cho các phần tử này chiếm khoảng cách bằng nhau */
+     align-items: center; 
+     /* Căn giữa các phần tử con theo chiều dọc trong container */
+}
+
+body{
+    background-color: aliceblue;
+    float: left;
+    /*Cả đoạn dồn về bên trái , bên phải .Cho trôi về phía nào ?*/
+    padding: auto;
+
+}
