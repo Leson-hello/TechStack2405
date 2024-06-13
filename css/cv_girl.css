@@ -1,0 +1,23 @@
+.container {
+    padding-top: 60px;
+    display: flex; /* Sử dụng flexbox để sắp xếp */
+    justify-content: space-around; /* Sắp xếp đều các phần tử con */
+    align-items: center; /* Canh giữa các phần tử con theo chiều dọc */
+}
+.box1{
+    width: 400px;
+ 
+}
+.box1 img{
+    max-width: 100%;
+}
+h2{
+background-color: grey;
+font-weight: 100;
+text-align: center;
+}
+#inside{
+    margin: 15px;
+    text-align: left;
+    padding: 40px;
+}

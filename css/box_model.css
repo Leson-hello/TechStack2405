@@ -6,7 +6,7 @@ div {
     /* margin là biên độ ,khoảng cách bên ngoài từ boder ra bên ngoài  */
     border: 1px solid red;
     padding: 10px;
-    /* padding là biên độ ,khoảng cách bên ngoài từ boder vào bên trong  */
+    /* padding là biên độ ,khoảng cách từ boder vào bên trong  */
     background-color: bisque;
     border-radius: 10px;
     transition: all 500ms;
@@ -30,3 +30,5 @@ img {
     /* Lấy 100%  px của khối hộp (div) 
     VD: width: 400px; =>img =  400px  */
 }
+
+
