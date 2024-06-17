@@ -1,0 +1,108 @@
+### Khi nào dùng Padding?
+**Padding** được sử dụng để tạo khoảng cách bên trong phần tử, giữa nội dung và viền (border) của phần tử đó. Padding thường được sử dụng khi bạn muốn:
+
+1. **Tạo khoảng cách giữa nội dung và viền của phần tử:**
+   - Giúp nội dung không dính vào viền, làm cho phần tử trông rõ ràng và dễ đọc hơn.
+   ```css
+   .box {
+       padding: 20px;
+   }
+   ```
+
+2. **Tăng kích thước của phần tử mà không thay đổi kích thước nội dung:**
+   - Làm cho phần tử trông lớn hơn mà không thay đổi kích thước của văn bản hay hình ảnh bên trong.
+   ```css
+   .box {
+       padding: 10px 20px;
+   }
+   ```
+
+### Khi nào dùng Border?
+**Border** được sử dụng để tạo viền xung quanh phần tử. Border thường được sử dụng khi bạn muốn:
+
+1. **Phân tách các phần tử:**
+   - Giúp làm rõ ràng ranh giới giữa các phần tử khác nhau trong trang web.
+   ```css
+   .box {
+       border: 1px solid black;
+   }
+   ```
+
+2. **Tạo phong cách cho phần tử:**
+   - Thêm các hiệu ứng trang trí cho phần tử bằng cách thay đổi màu sắc, độ dày, hoặc kiểu của viền.
+   ```css
+   .box {
+       border: 2px dashed blue;
+   }
+   ```
+
+### Khi nào dùng Margin?
+**Margin** được sử dụng để tạo khoảng cách bên ngoài viền của phần tử, giữa phần tử và các phần tử khác hoặc cạnh của trang. Margin thường được sử dụng khi bạn muốn:
+
+1. **Tạo khoảng cách giữa các phần tử:**
+   - Giúp các phần tử không chạm vào nhau và tạo khoảng cách hợp lý giữa chúng.
+   ```css
+   .box {
+       margin: 20px;
+   }
+   ```
+
+2. **Canh giữa phần tử:**
+   - Giúp phần tử canh giữa theo chiều ngang hoặc chiều dọc.
+   ```css
+   .box {
+       margin: 0 auto; /* Canh giữa theo chiều ngang */
+   }
+   ```
+
+### Ví dụ tổng hợp
+Dưới đây là ví dụ minh họa cho từng trường hợp sử dụng:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padding, Border, Margin Example</title>
+    <style>
+        .padding-example {
+            padding: 20px; /* Tạo khoảng cách bên trong */
+            background-color: lightyellow;
+        }
+
+        .border-example {
+            border: 2px solid red; /* Tạo viền */
+            padding: 20px;
+            background-color: lightgreen;
+        }
+
+        .margin-example {
+            margin: 20px; /* Tạo khoảng cách bên ngoài */
+            border: 2px solid blue;
+            padding: 20px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="padding-example">
+        Đây là ví dụ về padding.
+    </div>
+    <div class="border-example">
+        Đây là ví dụ về border.
+    </div>
+    <div class="margin-example">
+        Đây là ví dụ về margin.
+    </div>
+</body>
+</html>
+```
+
+### Giải thích ví dụ:
+1. **Padding Example:**
+   - Phần tử có khoảng cách 20px giữa nội dung và viền.
+2. **Border Example:**
+   - Phần tử có viền đỏ 2px, khoảng cách 20px giữa nội dung và viền.
+3. **Margin Example:**
+   - Phần tử có khoảng cách 20px bên ngoài viền, viền xanh 2px và khoảng cách 20px giữa nội dung và viền.

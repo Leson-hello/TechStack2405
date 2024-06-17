@@ -1,5 +1,5 @@
 .container {
-    padding-top: 60px;
+    margin-top: 60px;
     display: flex; /* Sử dụng flexbox để sắp xếp */
     justify-content: space-around; /* Sắp xếp đều các phần tử con */
     align-items: center; /* Canh giữa các phần tử con theo chiều dọc */
