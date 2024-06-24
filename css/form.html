@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Form với phương thức GET -->
+    <form action="#" method="get">
+        <!-- Trường Họ và Tên -->
+        <label for="full-name">Họ và Tên</label>
+        <input type="text" id="full-name" name="full_name" placeholder="Họ và Tên">
+
+        <!-- Trường Mật khẩu -->
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" name="password" placeholder="MẬT KHẨU">
+
+        <!-- Trường Điện thoại -->
+        <label for="u-tel">Điện thoại</label>
+        <input type="tel" id="u-tel" name="u_tel" placeholder="Điện thoại">
+
+        <!-- Trường Email -->
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email">
+
+        <!-- Trường Ngày sinh -->
+        <label for="dob">Ngày sinh</label>
+        <input type="date" id="dob" name="date">
+
+        <!-- Trường Giới tính -->
+        <label for="gender">Giới tính</label>
+        <select name="gender" id="gender">
+            <option value="male">Nam</option>
+            <option value="female">Nữ</option>
+        </select>
+
+        <!-- Trường Địa chỉ -->
+        <label for="address">Địa chỉ</label>
+        <textarea name="address" id="address" cols="30" rows="10" placeholder="Địa chỉ của bạn"></textarea>
+
+        <!-- Nút Gửi -->
+        <button type="submit">Gửi</button>
+
+        <!-- Nút Đặt lại -->
+        <button type="reset">Đặt lại</button>
+    </form>
+
+    <!-- JavaScript để minh họa chức năng của các nút -->
+    <script>
+        // Thêm sự kiện vào nút gửi
+        document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
+            event.preventDefault(); // Ngăn chặn gửi form để demo
+            alert('Form đã được gửi!');
+        });
+
+        // Thêm sự kiện vào nút đặt lại
+        document.querySelector('button[type="reset"]').addEventListener('click', function() {
+            alert('Form đã được đặt lại!');
+        });
+    </script>
+</body>
+</html>
