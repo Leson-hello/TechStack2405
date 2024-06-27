@@ -1,0 +1,163 @@
+body {
+    text-align: left;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.section {
+    float: left;
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    background-image: url("../images/header-background2.jpg");
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 70px;
+    text-align: center;
+    color: white;
+}
+
+.header .bg-header h1 {
+    color: #ffffff;
+    font-size: 50px;
+}
+
+.header p {
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+.navigation .container {
+    width: 850px;
+    margin-top: 20px;
+}
+
+.navigation input {
+    width: calc(100% - 120px);
+    height: 40px;
+    padding: 10px;
+    border: 1px solid burlywood;
+    float: left;
+}
+
+.navigation button {
+    background-color: #56565690;
+    padding: 15px 20px;
+    color: #ffffff;
+    border: none;
+    height: 40px;
+    float: left;
+}
+
+.browsebycat {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f9f9f9;
+}
+
+.browsebycat h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.latest {
+    padding: 40px 0;
+    background-color: #fff;
+}
+
+.latest h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.browsebydiet {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+}
+
+.browsebydiet h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item, .item2 {
+    width: 23%;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.item img, .item2 img {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.item img:hover, .item2 img:hover {
+    transform: scale(1.05);
+}
+
+.item h3, .item2 h3 {
+    width: 80%;
+    background-color: rgba(86, 86, 86, 0.6);
+    padding: 10px;
+    color: #ffffff;
+    margin-top: -30px;
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    transform: translateY(50%);
+    text-transform: uppercase;
+    font-weight: 400;
+    border-radius: 0 0 10px 10px;
+}
+
+.item2 .details {
+    text-align: left;
+    padding: 10px 0;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item2 .details span {
+    display: block;
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.item2 .details h3 {
+    color: #333;
+    font-size: 16px;
+    margin: 0;
+}
