@@ -1,0 +1,210 @@
+body {
+    text-align: left;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.section {
+    float: left;
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-size: cover;
+    text-align: center;
+    background-color: rgb(30, 87, 30);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.header .bg-header a {
+    font-size: large;
+    color: aliceblue;
+    margin-right: 15px;
+    /* Thêm khoảng cách giữa các liên kết */
+}
+
+.section .main-content .container {
+    background-color : #DCD7D1;
+}
+
+.main-content .col-6 h2 {
+    color: green;
+}
+
+.main-content .col-6 .btn-success1 {
+    background-color: green;
+}
+
+.main-content .col-6 .btn-success {
+    background-color: yellow;
+    color: black;
+}
+
+.btn-custom {
+    margin-left: -10px;
+    display: inline-flex;
+    align-items: left;
+    padding: 10px 10px;
+    border: 2px solid #004225;
+    border-radius: 50px;
+    background-color: #004225;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-custom .icon {
+    background-color: #FFCA28;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #004225;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: #003514;
+    border-color: #003514;
+}
+
+.btn-custom:active {
+    background-color: #00270f;
+    border-color: #00270f;
+}
+
+.btn-custom:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 66, 37, 0.5);
+}
+
+.header2 {
+    background-color: white; /* Set this header's background to yellow */
+    
+}
+
+.section .header2 {
+    width: 100%; /* Sets the width of the section to full viewport width */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+.container {
+    text-align: center;
+    width: 100%; /* Override previous settings that might restrict the width */
+    max-width: none; /* Removes any maximum width constraints */
+    padding: 0 15px; /* Optional: Maintains padding within the container without affecting full width */
+}
+.container .col-md-4 .img-container{
+    margin-top: 1px;
+    position: absolute;
+    
+}
+.container .img-container{
+    margin-top: 30px;
+    padding-left: -10px;
+    padding-right: -10px;
+}
+.section {
+    width: 100%;
+}
+
+.main-content {
+    background-color: #004225; /* Dark Green Background */
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.bg-primary {
+    background-color: #00542a !important; /* Slightly darker green */
+}
+
+.bg-secondary {
+    background-color: #006637 !important; /* Slightly lighter green */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+.body1 {
+    padding-top: 10px;
+    text-align: left;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container1 {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title1 {
+    margin-bottom: 40px;
+}
+
+.badge-custom3 {
+    background-color: #FFCA28;
+    color: #004225;
+    border-radius: 50px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.card-custom3 {
+    border: 2px solid #004225;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.card-custom3 h5 {
+    margin-top: 20px;
+}
+
+.card-custom3 p {
+    color: #6c757d;
+}
+.container .mt-6{
+    text-align: left;
+}
+
+/* How it Works section */
+.header4 a{ 
+    font-size: xx-large;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #004225; /* Set the desired background color */
+}

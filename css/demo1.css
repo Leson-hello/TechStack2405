@@ -1,0 +1,125 @@
+body {
+    text-align: left;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.section {
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+.header {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-size: cover;
+    text-align: center;
+    background-color: rgb(30, 87, 30);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.bg-header a {
+    font-size: large;
+    color: aliceblue;
+    margin-right: 15px;
+}
+
+.main-content .btn-success1 {
+    background-color: green;
+}
+
+.main-content .btn-success {
+    background-color: yellow;
+    color: black;
+}
+
+.btn-custom {
+    margin-left: -10px;
+    display: inline-flex;
+    align-items: left;
+    padding: 10px 10px;
+    border: 2px solid #004225;
+    border-radius: 50px;
+    background-color: #004225;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-custom .icon {
+    background-color: #FFCA28;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #004225;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: #003514;
+    border-color: #003514;
+}
+
+.btn-custom:active {
+    background-color: #00270f;
+    border-color: #00270f;
+}
+
+.btn-custom:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 66, 37, 0.5);
+}
+
+.header2 {
+    background-color: white;
+}
+
+.border-custom {
+    border: 2px solid #004225;
+    border-radius: 10px;
+}
+
+.bg-custom {
+    background-color: #FFCA28;
+    color: #004225;
+    border-radius: 50px;
+    padding: 5px 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+.badge.bg-custom {
+    background-color: #FFCA28;
+    color: #004225;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
