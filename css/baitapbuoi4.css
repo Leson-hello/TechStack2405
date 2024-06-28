@@ -29,12 +29,13 @@ li {
 }
 
 .header {
-    background-image: url("../images/header-background2.jpg");
+    background-image: url("../images/hero-image.png");
     background-size: cover;
     padding-top: 80px;
     padding-bottom: 70px;
     text-align: center;
     color: white;
+    
 }
 
 .header .bg-header h1 {
@@ -54,7 +55,7 @@ li {
 
 .navigation input {
     width: calc(100% - 120px);
-    height: 40px;
+    height: 20px;
     padding: 10px;
     border: 1px solid burlywood;
     float: left;
@@ -109,14 +110,14 @@ li {
     justify-content: space-between;
 }
 
-.item, .item2 {
+ .item, .item2 {
     width: 23%;
     margin-bottom: 30px;
     text-align: center;
     position: relative;
 }
 
-.item img, .item2 img {
+ .item img, .item2 img {
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
@@ -125,7 +126,7 @@ li {
     transform: scale(1.05);
 }
 
-.item h3, .item2 h3 {
+.browsebycat .item h3, .item2 h3 {
     width: 80%;
     background-color: rgba(86, 86, 86, 0.6);
     padding: 10px;
@@ -141,7 +142,7 @@ li {
     border-radius: 0 0 10px 10px;
 }
 
-.item2 .details {
+ .item2 .details {
     text-align: left;
     padding: 10px 0;
     background-color: white;
@@ -160,4 +161,55 @@ li {
     color: #333;
     font-size: 16px;
     margin: 0;
+}
+
+.main-content  h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-content {
+    background-color: #fff;
+}
+.main-content .item h3 {
+    width: 80%;
+    text-align: left;  /* Thêm thuộc tính này để căn trái văn bản */
+    padding: 10px;
+    color: rgb(43, 39, 39);
+    margin-top: 40px;
+    z-index: 100;
+    bottom: 0;
+    left: 10%;
+    
+    text-transform: uppercase;
+    font-weight: 400;
+    border-radius: 0 0 10px 10px;
+}
+.footer{
+    background-color: bisque;
+}
+.footer  h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.footer .item {
+    position: relative;
+    text-align: center;
+}
+
+.footer .item h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: #ffffff;
+    z-index: 100;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-radius: 0 0 10px 10px;
 }
