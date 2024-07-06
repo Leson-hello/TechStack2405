@@ -1,0 +1,265 @@
+/* Reset một số thuộc tính mặc định của các phần tử */
+body, h1, h2, h3, h4, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Phần header */
+.tm-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.tm-header .navbar-brand {
+    color: #cc9900;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.tm-main-nav .nav-link {
+    color: #333;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.tm-main-nav .nav-item.active .nav-link, .tm-main-nav .nav-link:hover {
+    background-color: #cc9900;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hình ảnh ở đầu trang */
+.tm-home-img-container {
+    background-image: url('../img/tm-home-img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+/* Section Introduction */
+.tm-section {
+    padding: 40px 0;
+    text-align: center; /* Căn giữa nội dung */
+}
+
+.tm-title {
+    color: #cc9900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 2em; /* Thay đổi kích thước chữ */
+    font-weight: bold; /* Đậm chữ */
+}
+
+.tm-subtitle {
+    font-size: 20px; /* Đặt kích thước chữ là 1.4 rem (khoảng 14px nếu 1rem = 10px) */
+    max-width: 800px; /* Đặt chiều rộng tối đa của phần tử là 800px */
+    margin: 0 auto 80px; /* Đặt khoảng cách ngoài: 
+                           - phía trên: 0px
+                           - phía dưới: 80px
+                           - phía trái và phải: tự động căn giữa */
+}
+
+
+/* Content boxes */
+.tm-content-box {
+    max-width: 310px;
+    margin: 0 auto;
+    text-align: start; /* Căn giữa nội dung bên trong */
+}
+
+.tm-content-box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.tm-content-box h4 {
+    color: #cc9900;
+    margin-bottom: 20px;
+}
+
+.tm-btn {
+    color: white;
+    background-color: #cc9900;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.tm-btn:hover {
+    background-color: #b38f00;
+}
+
+.tm-margin-b-20 { 
+    margin-bottom: 20px; 
+}
+
+/*  */
+/* Phần tiêu đề và mô tả trong khối bên trái */
+.tm-2-col-left {
+	margin-block: 100px;
+    padding-right: 0; /* Bỏ khoảng cách bên phải */
+    max-width: 660px; /* Giới hạn chiều rộng tối đa */
+    
+	text-align: start;
+}
+
+.tm-2-col-left img {
+    width: 100%; /* Đặt chiều rộng hình ảnh bằng với khối chứa */
+    height: auto;
+    margin-bottom: 20px; /* Khoảng cách dưới */
+}
+
+.tm-2-col-left .tm-title {
+    color: #cc9900; /* Màu chữ vàng */
+    margin-bottom: 20px; /* Khoảng cách dưới */
+    font-size: 1.5em; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm của chữ */
+	text-align: start;
+}
+
+.tm-2-col-left .tm-margin-b-30 {
+    margin-bottom: 30px; /* Khoảng cách dưới */
+}
+
+.tm-2-col-left .tm-margin-b-40 {
+    margin-bottom: 40px; /* Khoảng cách dưới */
+}
+
+.tm-2-col-left p {
+    margin-bottom: 20px; /* Khoảng cách dưới của đoạn văn */
+}
+
+/* Phần tiêu đề và mô tả trong khối bên phải */
+.tm-2-col-right {
+	margin-block: 100px;
+    
+    max-width: 660px; /* Giới hạn chiều rộng tối đa */
+}
+.tm-2-col-right .nav{
+	text-align: start;
+}
+.tm-2-col-right .media-object{
+	    margin-top: -32px;
+		margin-right: 15px;
+}
+.tm-2-col-right .tm-title {
+    color: #cc9900; /* Màu chữ vàng */
+    margin-bottom: 20px; /* Khoảng cách dưới */
+    font-size: 1.5em; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm của chữ */
+	text-align: start;
+}
+
+
+/* Cấu trúc của các hàng trong khối bên phải */
+.tm-2-rows-md-swap {
+    display: flex; /* Sử dụng Flexbox */
+    flex-wrap: wrap; /* Cho phép các phần tử gói lại khi cần */
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+	
+	
+}
+.tm-2-rows-md-swap .tm-title{
+	display: flex; /* Sử dụng Flexbox */
+	justify-content: space-between; /* Đặt khoảng cách giữa các phần tử kiểu space-around */
+	font-size: large;
+	
+}
+.tm-2-rows-md-swap li{
+    font-size: large;
+	margin-block: 10px;
+	
+}
+.tm-2-col-right hr {
+    border: none; /* Bỏ đường viền mặc định */
+    border-top: 1px solid black; /* Tạo đường viền đen dày 3px phía trên */
+    margin-top: 29px;
+}
+
+
+/*  */
+
+/* Categories và Useful Links */
+
+
+.tm-footer {
+    background-color: #111; /* Đặt màu nền tối hơn */
+    color: #ccc;
+    padding: 40px 0;
+    background-image: url('../images/anhnen10.jpg'); /* Thêm hình nền */
+    background-size: cover; /* Bao phủ toàn bộ phần tử */
+    background-repeat: no-repeat;
+}
+
+.tm-footer-content-box {
+    margin-bottom: 30px;
+	margin-left: 20px;
+	
+}
+
+.tm-footer-content-box-title {
+    color: #cc9900;
+    margin-bottom: 20px;
+}
+
+.tm-footer-content-box a {
+    color: #cccc66; /* Đổi màu liên kết */
+}
+
+.tm-footer-content-box a:hover {
+    color: #fff;
+}
+
+.tm-footer-content-box .tm-btn-gray {
+    background-color: #444;
+    color: #fff;
+}
+
+.tm-footer-content-box .tm-btn-gray:hover {
+    background-color: #333;
+}
+.tm-footer-content-box .tm-gray-bg p {
+	margin-bottom: 30px; /* Thêm khoảng cách dưới mỗi đoạn văn */
+	color: #111;
+	
+}
+.tm-footer-content-box .tm-gray-bg{
+	background-color: #fff;
+	
+}
+
+.tm-footer-thumbnail {
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* New CSS for 3 columns, 2 rows grid layout */
+.tm-footer-thumbnail-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    margin-bottom: 30px;
+}
+.tm-margin-b-301{
+	border: none; 
+    border-top: 1px solid white; 
+}

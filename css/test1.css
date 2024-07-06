@@ -1,0 +1,148 @@
+body {
+    text-align: left;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.section {
+    float: left;
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    background-image: url("../images/hero-image.png");
+    background-size: cover;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    text-align: center;
+    color: white;
+    height: max-content;
+    
+}
+
+
+/* styles.css */
+
+.navigation .nav-links {
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: -10px;
+    display: flex;
+    align-items: center;
+}
+.navigation .nav-links .logo {
+    font-size: 43px;
+    color: goldenrod;
+}
+.navigation .nav-links a {
+    font-size: 20px;
+    margin-left: 70px;
+    color: rgb(93, 86, 86);
+    text-decoration: none;
+}
+.navigation .nav-links a:hover {
+    color: goldenrod;
+}
+.navigation .nav-links a.active {
+    background-color: goldenrod;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+/* tách ra nhìn đỡ mỏi đây là phần 3 */
+.browsebycat {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f9f9f9;
+}
+
+.browsebycat .intro-section {
+    text-align: center;
+    margin: 50px 0;
+}
+.browsebycat .intro-section h2 {
+    font-size: 36px;
+    color: goldenrod;
+    margin-bottom: 20px;
+}
+.browsebycat .intro-section p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+} 
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+ .item, .item2 {
+    width: 23%;
+    margin-bottom: 30px;
+    text-align: start;
+    position: relative;
+}
+
+ .item img, .item2 img {
+    width: 100%;
+    height: max-content;
+    height: auto;
+    transition: transform 0.3s ease;
+    
+}
+
+.item img:hover, .item2 img:hover {
+    transform: scale(1.05);
+}
+.browsebycat .item h3, .item2 h3 {
+    font-size: 25px;
+    color: #b88a23;
+    margin: 16px 0 16px ;
+    display: inline-block; /* Makes sure it stays in line */
+    vertical-align: middle; /* Aligns with the text */
+}
+
+.browsebycat .item p {
+    color: #555;
+    padding: 0 16px 0 0;
+    font-size: 20px;
+    text-align: inherit;
+}
+
+
+
+.browsebycat button{
+    background-color: #b88a23;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 16px 0 0 -2px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    
+}
+
+
+/* Phần cccc */

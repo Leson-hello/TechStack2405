@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function getEdge(mess, min, max) {
+            let input;
+            while (true) {
+                input = prompt(mess).trim();
+                if (input === "") {
+                    alert("Empty string");
+                    continue;
+                }
+                let num  = parseInt(input);
+                if (isNaN(num)) {
+                    alert("Input must be a number!");
+
+                } else if (num < min || num > max) {
+                    alert("Not in range");
+                } else {
+                    return num;
+                }
+            }
+        }
+
+        var edge1 = getEdge("Enter edge 1:",0,Number.MAX_SAFE_INTEGER);
+        var edge2 = getEdge("Enter edge 2:",0,Number.MAX_SAFE_INTEGER);
+        var edge3 = getEdge("Enter edge 3:",0,Number.MAX_SAFE_INTEGER);
+
+       var P2 = (edge1+edge2+edge3)/2;
+
+       var S = Math.sqrt(P2*(P2-edge1)*(P2-edge2)*(P2-edge3));
+       alert("The area of the triangle:"+S.toFixed(2));
+
+    </script>
+</body>
+
+</html>

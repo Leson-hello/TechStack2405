@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Number Game</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function getInt(message, min, max) {
+            let input;
+            while (true) {
+                input = prompt(message).trim();
+                if (input === "") {
+                    alert("Empty!");
+                    continue;
+                }
+                let num = parseInt(input);
+                if (isNaN(num)) {
+                    alert("Input must be a number!");
+                } else if (num < min || num > max) {
+                    alert("Not in range");
+                } else {
+                    return num;
+                }
+            }
+        }
+
+        var luckyNumber = getInt("Enter lucky number", 0, 100);
+        var moneyBet = getInt("Money bet on lucky number", 0, Number.MAX_SAFE_INTEGER);
+
+        var random = Math.floor(Math.random()*101);
+
+        if (luckyNumber == random) {
+            alert("Congratulations! You won!");
+        } else {
+            alert("Next Time! Good luck!");
+        }
+        
+    </script>
+</body>
+</html>

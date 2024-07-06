@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        console.log("hello world!");
+        // console/log là để in ra trên bảng điều khiển .
+        console.log("Wellcome to model2");
+        console.log(5 + 3);
+        var a = 8;
+        //Khai báo biến tên a có giá trị 8;
+        //1 biến là 1 ô nhớ 
+        var b = 2;
+        console.log(a + b);
+        var t = true;
+        var f = false;
+
+        var nu = null;
+
+        var un = undefined;
+
+        n = "Say Hi";
+        console.log(typeof n);
+        //typeof là thể hiện type của biến 'n' (In ra "String");
+
+        var x3 = "1234";
+        console.log(x3);
+
+        // Define a variable x3 and assign it a value
+        let x3 = 'some value';
+
+        // Log the value of x3 to the console using template literals
+        console.log(`${x3}`);
+        //DÙNG DẤU HUYỀN " ` "
+
+
+
+        //Convert string to number
+        x3 = parseInt(x3);
+        console.log(typeof x3);
+        //Convert number to string
+        x3 = "" + x3;
+        //Từ khóa typeof được dùng để kiểm tra kiểu dữ liệu
+        // của một biến nào đó (hoặc một giá trị nào đó)
+        console.log(typeof x3);
+
+        // var input = prompt("Nhập vào trọng lượng của bạn");
+        // //prompt sẽ tạo ra 1 ô nhập giá trị sẽ lưu vào biến input
+        //  input = parseFloat(input);
+        //  var f = input * 9.878;
+        //  console.log("Lực rơi xuống là :" +f.toFixed(2));
+        var long = prompt("Nhập chiều dài :");
+        var width = prompt("Nhập chiều rộng :");
+        long = parseFloat(long);
+        width = parseFloat(width);
+        var P = 2 * (long + width);
+        var S = long * width;
+        console.log("Chu vi hình chữ nhật " + P.toFixed(2));
+        console.log("Diện tích hình chữ nhật " + S.toFixed(2));
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

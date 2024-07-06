@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.text-warning {
+    color: #FFA500 !important; /* Change this to your desired color */
+}
+
+a {
+    color: #006699;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.media img {
+    border-radius: 5px;
+}
+
+.btn-warning {
+    background-color: #FFA500;
+    border-color: #FFA500;
+}
+
+.btn-warning:hover {
+    background-color: #e69500;
+    border-color: #e69500;
+}
+
+h4 {
+    color: #FFA500;
+}
+
+.media-body h5 {
+    color: #FFA500;
+}
