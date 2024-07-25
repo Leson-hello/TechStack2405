@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính chu vi và diện tích tam giác</h1>
+    <script type="text/javascript">
+        function isValidTriangle(a, b, c) {
+            return a + b > c && a + c > b && b + c > a;
+        }
+
+        function calculateTriangle() {
+            let isCompleted = false;
+
+            while (!isCompleted) {
+                let side1 = parseFloat(prompt("Nhập cạnh thứ nhất:"));
+                let side2 = parseFloat(prompt("Nhập cạnh thứ 2:"));
+                let side3 = parseFloat(prompt("Nhập cạnh thứ 3:"));
+
+                if (isValidTriangle(side1, side2, side3)) {
+                    let perimeter = side1 + side2 + side3;
+                    alert(`Chu vi tam giác: ${perimeter}`);
+
+                    let semiPerimeter = perimeter / 2;
+                    let area = Math.sqrt(semiPerimeter * (semiPerimeter - side1) * (semiPerimeter - side2) * (semiPerimeter - side3));
+                    alert(`Diện tích tam giác: ${area}`);
+
+                    isCompleted = true;
+                } else {
+                    alert("Đây không phải là độ dài 3 cạnh tam giác!");
+                }
+            }
+        }
+
+        calculateTriangle();
+    </script>
+
+
+
+
+</body>
+</html>

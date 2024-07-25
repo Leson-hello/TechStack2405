@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+
+        function getDataInt(mess, min, max) {
+            let input;
+            while (true) {
+                // Thay cho cái scanner để chuyển thành prompt để nhận giá trị truyền vào .
+                input = prompt(mess).trim();
+                // Kiểm tra input có chứa dữ liệu  ko ? 
+                if (input === "") {
+                    alert("Chuỗi nhập vào rỗng");
+                    continue;
+                }
+                // Chuyển đổi text ra số .
+                let num = parseInt(input);
+                if (isNaN(num)) {
+                    alert("Dữ liệu nhập phải là số!");
+                //Kiểu tra xem có nằm trong giới hạn cho phép ko ?
+                } else if (num < min || num > max) {
+                    alert("Số nhập không nằm trong khoảng cho phép");
+                } else {
+                    return num;
+                }
+            }
+        }
+
+        function fiboNacci(number) {
+                var f0 = 0;
+                var f1 = 1;
+                var fn = 1;
+                var i;
+
+                if (number < 0) {
+                    return -1;
+                } else if (number == 0 || number == 1) {
+                    return number;
+                } else {
+                    for (i = 2; i < number; i++) {
+                        f0 = f1;
+                        f1 = fn;
+                        fn = f0 + f1;
+                    }
+                }
+                return fn;
+            }
+         
+                function isFibonacci(n) {
+
+                    // n is Fibonacci if one of 5*n*n + 4 or 5*n*n - 4 or both
+                    // is a perfect square
+                    return isPerfectSquare(5 * n * n + 4) ||
+                        isPerfectSquare(5 * n * n - 4);
+                }
+
+
+        var number = getDataInt("Nhập số n:", 0, Number.MAX_VALUE);
+        let lastFibonacciIndex = -1; // Biến lưu trữ vị trí cuối cùng
+
+    for (var i = 0; i < number; i++) {
+        if (isFibonacci(i)) {
+            lastFibonacciIndex = i; // Cập nhật vị trí cuối cùng khi điều kiện thỏa mãn
+        }
+    }
+
+    // Sau vòng lặp, lastFibonacciIndex sẽ chứa vị trí cuối cùng của số Fibonacci
+    console.log("Vị trí cuối cùng của số Fibonacci: " + lastFibonacciIndex);
+      //  alert('fiboNacci ở vị trí cận dưới của n là :'+fiboNacci);
+
+
+
+        //  var sum = 0;
+        //  var i = 1;
+        //  while (i <= number){ 
+        //        sum +=i;   
+        //        i++;
+        //  }
+        //  alert('Tổng từ 1 đến n: '+sum);
+
+
+         
+        // var moneySend = getDataInt("Nhập số tiền gửi:", 0, Number.MAX_VALUE);
+        // var moneyWantTake = getDataInt("Nhập số tiền muốn lấy:", 0, Number.MAX_SAFE_INTEGER);
+
+
+
+        // if (moneySend <= 0) {
+        //     alert('Số tiền gửi phải lớn hơn 0');
+        // } else {
+        //     var yearTake = 0;
+        //     while (moneySend < moneyWantTake) {
+        //         moneySend += moneySend * (0.8 / 100); 
+        //         yearTake++;
+        //     }
+        //     alert('Tổng số năm cần thiết để đạt số tiền muốn: ' + yearTake);
+        // }
+
+
+
+        // var moneySend = getDataInt("Nhập số tiền gửi:", 0, Number.MAX_VALUE);
+        // var yearSend = getDataInt("Nhập số năm gửi:", 0, Number.MAX_SAFE_INTEGER);
+
+
+        
+        // var yearTake = 0;
+        // while(yearTake <yearSend){
+        //     moneySend = moneySend + moneySend*(8/100);
+        //     yearTake++;
+        // }
+        // alert('Tổng số tiền lãi lẫn gốc:'+moneySend);
+
+
+
+
+        // var interestRateforYear = 0.8 / 100; 
+        // var sumAllMoney = moneySend * Math.pow((1 + interestRateforYear), yearSend);
+        // console.log("Tổng tiền gửi: " + sumAllMoney.toFixed(2));
+
+    </script>
+</body>
+
+</html>

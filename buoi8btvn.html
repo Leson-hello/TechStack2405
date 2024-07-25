@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Cận Dưới</title>
+</head>
+<body>
+    <h1>Tìm Số Fibonacci Cận Dưới</h1>
+    <label for="numberInput">Nhập số n:</label>
+    <input type="number" id="numberInput" />
+    <button onclick="findFibonacci()">Tìm</button>
+    <p id="result"></p>
+
+    <script type="text/javascript">
+        function findFibonacci() {
+            let n = parseInt(document.getElementById("numberInput").value);
+            if (isNaN(n) || n < 0) {
+                document.getElementById("result").textContent = "Vui lòng nhập một số nguyên dương.";
+                return;
+            }
+
+            let a = 0;
+            let b = 1;
+            let fib = a;
+
+            while (b <= n) {
+                fib = b;
+                let temp = b;
+                b = a + b;
+                a = temp;
+            }
+
+            document.getElementById("result").textContent = `Số Fibonacci cận dưới của ${n} là ${fib}`;
+        }
+    </script>
+</body>
+</html>

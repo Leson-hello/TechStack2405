@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Vietlot</title>
+</head>
+<body>
+    <!-- Cẩn tìm hiểu thêm . -->
+    <script type="text/javascript">
+        function generateRandomNumbers() {
+            let numbers = new Set();
+            while (numbers.size < 6) {
+                let num = Math.floor(Math.random() * 56);
+                numbers.add(num);
+            }
+            return Array.from(numbers);
+        }
+
+        function countMatchingNumbers(playerNumbers, lotteryNumbers) {
+            let count = 0;
+            playerNumbers.forEach(num => {
+                if (lotteryNumbers.includes(num)) {
+                    count++;
+                }
+            });
+            return count;
+        }
+
+        function drawResult(playerNumbers, lotteryNumbers) {
+            let matchCount = countMatchingNumbers(playerNumbers, lotteryNumbers);
+
+            switch (matchCount) {
+                case 3:
+                    return "Bạn trúng giải 3 số: 100K";
+                case 4:
+                    return "Bạn trúng giải 4 số: 1M";
+                case 5:
+                    return "Bạn trúng giải 5 số: 10M";
+                case 6:
+                    return "Chúc mừng! Bạn đã trúng Jackpot 10 tỷ!";
+                default:
+                    return "Bạn không trúng giải nào lần này. Hãy thử lại may mắn!";
+            }
+        }
+
+        let playerNumbers = [3, 8, 12, 21, 35, 50]; 
+        let lotteryNumbers = generateRandomNumbers(); 
+
+        console.log("Số của bạn:", playerNumbers);
+        console.log("Số kỳ quay:", lotteryNumbers);
+
+        let result = drawResult(playerNumbers, lotteryNumbers);
+        console.log(result);
+    </script>
+</body>
+</html>

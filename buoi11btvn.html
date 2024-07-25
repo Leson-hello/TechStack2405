@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Control</title>
+    <style>
+        #fan {
+            margin: 50px auto;
+            width: 450px;
+            height: 450px;
+            transition: transform 0.1s linear;
+            background-image: url("images/fan.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .controls {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="fan"></div>
+    <div class="controls">
+        <button type="button" onclick="setSpeed(0)">OFF</button>
+        <button type="button" onclick="setSpeed(1)">1</button>
+        <button type="button" onclick="setSpeed(2)">2</button>
+        <button type="button" onclick="setSpeed(3)">3</button>
+    </div>
+
+    <script type="text/javascript">
+        var speed = 0;
+        var rotation = 0;
+        var fanInterval;
+
+        function setSpeed(newSpeed) {
+            speed = newSpeed * 5; // Điều chỉnh tốc độ cho phù hợp
+            if (speed > 0) {
+                if (!fanInterval) {
+                    fanInterval = setInterval(rotateFan, 20);
+                }
+            } else {
+                clearInterval(fanInterval);
+                fanInterval = null;
+            }
+        }
+
+        function rotateFan() {
+            var fan = document.getElementById("fan");
+            rotation += speed;
+            fan.style.transform = `rotate(${rotation}deg)`;
+        }
+    </script>
+</body>
+</html>
