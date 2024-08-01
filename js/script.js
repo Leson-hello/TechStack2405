@@ -1,5 +1,5 @@
 async function fetchWeatherData() {
-    const city = document.getElementById('city-input').value || 'Hanoi'; // Default to Hanoi if no input
+    const city = document.getElementById('city-input').value || 'Hanoi';//Mặc định là HN nếu ko có input
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`);
         const data = await response.json();
@@ -27,5 +27,5 @@ function updateWeatherInfo(data) {
     document.getElementById('rain-chance').textContent = `Khả năng có mưa: ${rainChance}`;
 }
 
-// Fetch initial weather data for Hanoi
+//  Data khởi tạo ở HN
 fetchWeatherData();
