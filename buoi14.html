@@ -8,6 +8,10 @@
 </head>
 <body>
     <div class="weather-container">
+        <div class="input-container">
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button onclick="fetchWeatherData()">Get Weather</button>
+        </div>
         <div class="weather-info">
             <img id="weather-icon" src="" alt="Weather Icon">
             <span id="temperature"></span>
