@@ -3,23 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="css/stylebtvn.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/stylebtvn.css"/>
 </head>
 <body>
-    <div class="weather-container container">
-        <div class="row">
-            <div class="input-container col-12">
-                <input type="text" id="city-input" class="form-control form-control-sm" placeholder="Enter city name">
-                <button class="btn btn-primary btn-sm mt-2" onclick="fetchWeatherData()">Get Weather</button>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="input-container col-12">
+                    <input type="text" id="city-input" class="form-control form-control-sm" placeholder="Enter city name">
+                    <button class="btn btn-primary btn-sm mt-2" onclick="forecast()">Get Weather</button>
+                </div>
             </div>
+            <div class="row" id="list"></div>
         </div>
-        <div id="forecast" class="row mt-4"></div>
-    </div>
-    <script src="js/scriptbtvn14.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </main>
+    <script type="text/javascript">
+        async function forecast() {
+            const city = document.getElementById('city-input').value || 'Hanoi'; // Default to Hanoi if no input
+            const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`;
+            try {
+                const response = await fetch(url); // Lấy về kết quả là 1 string
+                const data = await response.json(); // Chuyển string thành object trong js
+                
+                if (response.ok) {
+                    const ls = data.list; // Binding data
+                    const list = document.getElementById('list');
+                    list.innerHTML = ''; // Clear previous data
+                    
+                    for (const item of ls) {
+                        const item_html = `
+                            <div class="col-12 col-md-6 col-lg-3 mb-3 mt-3">
+                                <div class="item">
+                                    <p class="time">${new Date(item.dt_txt).toLocaleString()}</p>
+                                    <h3>${item.main.temp}<sup>o</sup>C</h3>
+                                    <p class="desc">${item.weather[0].description}</p>
+                                    <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png" alt="${item.weather[0].description}"/>
+                                </div>
+                            </div>`;
+                        list.innerHTML += item_html;
+                    }
+                } else {
+                    console.error('Error fetching weather data:', data.message);
+                }
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            forecast(); // Fetch initial weather data for Hanoi on page load
+        });
+    </script>
 </body>
 </html>

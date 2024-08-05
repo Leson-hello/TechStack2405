@@ -106,3 +106,11 @@ Dưới đây là ví dụ minh họa cho từng trường hợp sử dụng:
    - Phần tử có viền đỏ 2px, khoảng cách 20px giữa nội dung và viền.
 3. **Margin Example:**
    - Phần tử có khoảng cách 20px bên ngoài viền, viền xanh 2px và khoảng cách 20px giữa nội dung và viền.
+
+///////////////////////////////////////////////////////////////////
+Toán tử ba ngôi (Ternary Operator)
+Toán tử ba ngôi là một cách viết ngắn gọn cho câu lệnh điều kiện if-else. Cú pháp của toán tử ba ngôi là:
+condition ? expr1 : expr2
+
+
+Làm giao diện trước sau đó mới có dữ liệu 
