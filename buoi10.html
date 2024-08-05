@@ -8,43 +8,43 @@
 <body>
     <script type="text/javascript">
 
-        function isPrime(number){
-            for (var i = 2; i <= Math.sqrt(number);i++){
-                if (number % i === 0 ){
-                    return false;
-                }
-            }
-            return true;
+        // function isPrime(number){
+        //     for (var i = 2; i <= Math.sqrt(number);i++){
+        //         if (number % i === 0 ){
+        //             return false;
+        //         }
+        //     }
+        //     return true;
 
-        }
+        // }
 
         
-        function getInt(message, min, max) {
-            let input;
-            while (true) {
-                input = prompt(message).trim();
-                if (input === "") {
-                    alert("Empty!");
-                    continue;
-                }
-                let num = parseInt(input);
-                if (isNaN(num)) {
-                    alert("Input must be a number!");
-                } else if (num < min || num > max) {
-                    alert("Not in range");
-                } else {
-                    return num;
-                }
-            }
-        }
+        // function getInt(message, min, max) {
+        //     let input;
+        //     while (true) {
+        //         input = prompt(message).trim();
+        //         if (input === "") {
+        //             alert("Empty!");
+        //             continue;
+        //         }
+        //         let num = parseInt(input);
+        //         if (isNaN(num)) {
+        //             alert("Input must be a number!");
+        //         } else if (num < min || num > max) {
+        //             alert("Not in range");
+        //         } else {
+        //             return num;
+        //         }
+        //     }
+        // }
 
-        var number = getInt("Enter number", 0, Number.MAX_SAFE_INTEGER);
+        // var number = getInt("Enter number", 0, Number.MAX_SAFE_INTEGER);
 
-        if(isPrime(number)){
-            alert("Prime number is:"+number)
-        }else {
-            alert(number+"is not Prime")
-        }
+        // if(isPrime(number)){
+        //     alert("Prime number is:"+number)
+        // }else {
+        //     alert(number+"is not Prime")
+        // }
 
 //TAM GIÁC
 //         function isValidTriangle(a, b, c) {
@@ -67,7 +67,37 @@
 //     let semiPerimeter = perimeter / 2;
 //     return Math.sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
 // }
+ var x = 10;
+ var y = 60;
+//Đếm ngược từ 10 phút .
+function startCountdown(minutes) {
+    let time = minutes * 60; // Chuyển đổi phút thành giây
 
+    let countdown = setInterval(() => {
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+
+        // Định dạng phút và giây để hiển thị đẹp hơn
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        //minutes  = condition ? expr1 : expr2
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        console.log(`${minutes}:${seconds}`);
+
+        if (time <= 0) {
+            clearInterval(countdown);//loại bỏ cái interval
+            alert("Countdown finished!");
+        } else {
+            time--;
+        }
+    }, 1000); // Lặp lại mỗi giây
+}
+
+startCountdown(10); // Đếm ngược từ 10 phút
+
+
+ //setTimeout(delayAlert,2000);//Delay  function  for 2 seconds - callbackFunction.
+ //var delay =  setInterval(delayAlert,2000); // sẽ thực thi hàm delayAlert cứ sau mỗi 2000ms - lặp vĩnh viễn .
 
     </script>
 </body>

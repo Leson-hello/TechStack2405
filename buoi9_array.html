@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Array Demo</h1>
+    <script type="text/javascript">
+        // //Tính trung bình cộng 
+        // var array = [1, 2, 6, 8, 9, 10, 146, 67];
+        // var sumElement = 0;
+        // array.forEach(element => {
+        //     sumElement += element;
+        // });
+
+        //Dùng dấu huyền .
+        // alert(`TBC:${sumElement / array.length}`);
+
+
+
+        //  //Tìm số lớn nhất nhỏ nhất trong mảng .
+        //  var array = [];
+        //  var length1 = prompt('Enter the length of the array:');
+        //    length1 = parseInt(length1);
+        //   while(array.length < length1){
+        //          var element = prompt('Enter the element:');
+        //          element = parseInt(element);
+        //          array.push(element);//push element into array
+        //   }
+
+        // var max = Math.max(...array);
+        // /*Toán tử trải (spread operator) trong JavaScript là một công cụ rất mạnh mẽ và linh hoạt, 
+        // được biểu diễn bằng ba dấu chấm (...). Nó cho phép bạn mở rộng các phần tử của một MẢNG hoặc 
+        // các thuộc tính của một ĐỐI TƯỢNG trong nhiều ngữ cảnh khác nhau .*/
+        // alert(`Max: ${max}`);
+
+        //function getData
+        function getDataInt(mess, min, max) {
+            let input;
+            while (true) {
+                // Thay cho cái scanner để chuyển thành prompt để nhận giá trị truyền vào .
+                input = prompt(mess).trim();
+                // Kiểm tra input có chứa dữ liệu  ko ? 
+                if (input === "") {
+                    alert("Chuỗi nhập vào rỗng");
+                    continue;
+                }
+                // Chuyển đổi text ra số .
+                let num = parseInt(input);
+                if (isNaN(num)) {
+                    alert("Dữ liệu nhập phải là số!");
+                    //Kiểu tra xem có nằm trong giới hạn cho phép ko ?
+                } else if (num < min || num > max) {
+                    alert("Số nhập không nằm trong khoảng cho phép");
+                } else {
+                    return num;
+                }
+            }
+        }
+
+        // Tạo một mảng với 10 phần tử, tất cả đều là undefined
+        let array = new Array(10);
+        for (let index = 0; index < array.length; index++) {
+            array[index] = Math.round(Math.random() * 100);
+        }
+        var input = getDataInt("Enter the number :", 0, Number.MAX_VALUE);
+
+        var inputMoney = getDataInt("Enter the money :", 0, Number.MAX_VALUE);
+       
+
+        let found = false;
+        for (let index = 0; index < array.length; index++) {
+            if (input == array[index]) {
+                inputMoney = inputMoney * 3.47826086957;
+                alert(`You win :${inputMoney}`);
+                found = true;
+                console.log(array);
+                break; // Dừng vòng lặp khi tìm thấy giá trị
+            }
+        }
+
+        if (!found) {
+            console.log(array);
+            alert("You lose");
+        }
+
+        // Không cần ném lỗi để dừng chương trình
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
