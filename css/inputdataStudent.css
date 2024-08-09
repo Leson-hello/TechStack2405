@@ -1,0 +1,81 @@
+body {
+    background: linear-gradient(90deg, #512da8 0%, #7b1fa2 100%);
+    color: #333;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.header {
+    background: linear-gradient(90deg, #512da8 0%, #7b1fa2 100%);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.header h2 {
+    margin: 0;
+}
+
+.header p {
+    margin: 0;
+}
+
+.form-control {
+    background-color: #eef2f7;
+    border: none;
+    color: #333;
+}
+
+.form-control::placeholder {
+    color: #999999;
+}
+
+.card {
+    background-color: white;
+    border: none;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-custom {
+    background-color: #512da8;
+    border: none;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #7b1fa2;
+}
+
+.text-right p {
+    margin: 0;
+    font-weight: bold;
+}
+
+#studentList .card:hover {
+    background-color: #eef2f7;
+}
+.search-input {
+    font-weight: bold;  
+    border: 2px solid #512da8; 
+    margin-right: 15px; 
+}
+
+.search-input::placeholder {
+    font-weight: normal;
+    color: #999999; 
+}
+.container.mt-5 {
+    background-color: #ffffff; /* White background to make it stand out */
+    border-radius: 15px; /* Rounded corners for a softer look */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Space inside the container */
+    margin: 40px auto; /* Centering the container vertically and horizontally */
+    max-width: 900px; /* Optional: limit the width for a more focused layout */
+}
