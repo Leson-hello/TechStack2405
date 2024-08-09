@@ -37,19 +37,22 @@
         var speed = 0;
         var rotation = 0;
         var fanInterval;
-
+ /*var speed = 0;: Biến lưu tốc độ của quạt.
+var rotation = 0;: Biến lưu góc xoay hiện tại của quạt.
+var fanInterval;: Biến lưu ID của interval đang chạy.*/
         function setSpeed(newSpeed) {
             speed = newSpeed * 5; // Điều chỉnh tốc độ cho phù hợp
             if (speed > 0) {
                 if (!fanInterval) {
-                    fanInterval = setInterval(rotateFan, 20);
+                    fanInterval = setInterval(rotateFan, 20);//Điều chỉnh thời gian gọi hàm rotateFan => thời gian càng lớn xoay càng chậm .
                 }
             } else {
                 clearInterval(fanInterval);
                 fanInterval = null;
             }
         }
-
+        
+        //Nếu nhấn số 1 thì chỉ quay 1 góc 5 độ nhờ "rotate "
         function rotateFan() {
             var fan = document.getElementById("fan");
             rotation += speed;

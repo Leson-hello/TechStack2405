@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shopping Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -16,13 +16,13 @@
 <body>
     <header>
         <div class="container">
-
+            <h1 class="my-3">Shopping Page</h1>
         </div>
     </header>
     <nav class="navbar">
         <div class="container">
             <ul class="menu" id="menu">
-
+                <!-- Menu items will be rendered here -->
             </ul>
         </div>
     </nav>
@@ -45,47 +45,65 @@
                     <label>Sắp xếp</label>
                     <select id="select-sort" name="sort" onchange="filter()">
                         <option value="asc">Giá từ thấp đến cao</option>
-                        <option value="desc">Giá từ cao đến thâp</option>
-
+                        <option value="desc">Giá từ cao đến thấp</option>
                     </select>
+                </div>
+                <div class="col-2 text-right">
+                    <a href="buoi14html_CartShop.html" class="btn btn-primary">
+                        Cart (<span id="cart-count">0</span>)
+                    </a>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row" id="list-products">
-
-
+                <!-- Products will be rendered here -->
             </div>
         </div>
     </main>
 
     <script type="text/javascript">
-        // setTimeout(function(){ // call back function
+        // Cập nhật giỏ hàng từ localStorage
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        // },1000);
+        function addToCart(product) {
+            var existingProduct = cart.find(item => item.id === product.id);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                product.quantity = 1;
+                cart.push(product);
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+        }
 
-        // URL -> chứa data cần dùng dạng JSON  -> Rest api (HTTP Service) 
-        // có 2 cách: 1- sử dụng callback function   cách 2- sử dụng xử lý bất đồng bộ
-        // step 1: call api --> get data
+        function updateCartCount() {
+            var cartCount = document.getElementById("cart-count");
+            cartCount.textContent = cart.length;
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            updateCartCount();
+        });
+
         var url = `https://dummyjson.com/products/category-list`;
         fetch(url).then(function (rs) {
-            return rs.json(); // chuyển dữ liệu nhận được thành dạng JSON
+            return rs.json();
         })
             .then(function (rs) {
-                console.log(rs); // đã nhận được data là 1 array 24 string
-                // step 2: using data --> render html
-                var menu = document.getElementById("menu"); // list rendering
+                var menu = document.getElementById("menu");
                 for (var item of rs) {
                     var item_html = `<li class="item">
                                     <a href="#">${item}</a>
                                 </li>`;
                     menu.innerHTML += item_html;
                 }
-            })
+            });
 
-        // Render products list
+
+            
         var url2 = `https://dummyjson.com/products`;
-        // step 1
         fetch(url2).then(function (rs) {
             return rs.json();
         })
@@ -99,28 +117,30 @@
                         <div class="card-body">
                           <h5 class="card-title">${p.title}</h5>
                           <p class="card-text">${p.description}</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <button onclick='addToCart(${JSON.stringify(p)})' class="btn btn-primary">Add to Cart</button>
                         </div>
                       </div>
                 </div>`;
                     list.innerHTML += p_html;
                 }
-            })
+            });
+
+
+
 
         function searchProduct(e) {
-            if (event.keyCode == 13) { // kiểm tra xem người dùng nhấn phím enter (13)
+            if (event.keyCode == 13) {
                 var keyword = e.value;
-                // var url_search = `https://dummyjson.com/products/search?q=${keyword}`;
                 var limit = document.getElementById("select-limit").value;
                 var sort = document.getElementById("select-sort").value;
-                url_search = `https://dummyjson.com/products/search?q=${keyword}&limit=${limit}&sortBy=price&order=${sort}`;
+                var url_search = `https://dummyjson.com/products/search?q=${keyword}&limit=${limit}&sortBy=price&order=${sort}`;
                 fetch(url_search).then(function (rs) {
                     return rs.json();
                 })
                     .then(function (rs) {
                         var products = rs.products;
                         var list = document.getElementById("list-products");
-                        list.innerHTML = ``;// clear list
+                        list.innerHTML = "";
                         for (var p of products) {
                             var p_html = `<div class="col-3 mb-3">
                             <div class="card" style="width: 18rem;">
@@ -128,33 +148,28 @@
                                 <div class="card-body">
                                 <h5 class="card-title">${p.title}</h5>
                                 <p class="card-text">${p.description}</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <button onclick='addToCart(${JSON.stringify(p)})' class="btn btn-primary">Add to Cart</button>
                                 </div>
                             </div>
                         </div>`;
                             list.innerHTML += p_html;
                         }
-                    })
+                    });
             }
-
-            // xây dựng chức năng tìm kiếm sản phẩm
         }
 
-        // product of category
-        //   url = `https://dummyjson.com/products/category/beauty`;
-        // sort and limit
         function filter() {
             var search = document.getElementById("input-search").value;
             var limit = document.getElementById("select-limit").value;
             var sort = document.getElementById("select-sort").value;
-            url3 = `https://dummyjson.com/products/search?q=${search}&limit=${limit}&sortBy=price&order=${sort}`;
+            var url3 = `https://dummyjson.com/products/search?q=${search}&limit=${limit}&sortBy=price&order=${sort}`;
             fetch(url3).then(function (rs) {
                 return rs.json();
             })
                 .then(function (rs) {
                     var products = rs.products;
                     var list = document.getElementById("list-products");
-                    list.innerHTML = ``;// clear list
+                    list.innerHTML = "";
                     for (var p of products) {
                         var p_html = `<div class="col-3 mb-3">
                             <div class="card" style="width: 18rem;">
@@ -162,15 +177,14 @@
                                 <div class="card-body">
                                 <h5 class="card-title">${p.title}</h5>
                                 <p class="card-text">${p.description}</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <button onclick='addToCart(${JSON.stringify(p)})' class="btn btn-primary">Add to Cart</button>
                                 </div>
                             </div>
                         </div>`;
                         list.innerHTML += p_html;
                     }
-                })
+                });
         }
-
     </script>
 </body>
 

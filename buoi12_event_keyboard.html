@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Sự kiện bàn phím</h1>
+
+    <input name="fullname" type="text" placeholder="Nhập tên..." id="input-fullname" onkeydown="enterKeyDown()"
+        onkeyup="enterKeyUp(event)" />
+    <!-- event là một đối tượng được tự động truyền vào các hàm sự kiện VD:"enterKeyUp"
+         khi sự kiện đó được kích hoạt (ví dụ: keydown, keyup, change). -->
+    <!-- Đối tượng event chứa thông tin chi tiết về sự kiện, bao gồm loại sự kiện,
+             phần tử nào kích hoạt sự kiện, và trạng thái hiện tại của các phím điều khiển (như Ctrl, Shift, Alt). -->
+    <select name="country" onchange="selectChange(this)">
+        <option value="VN">VN</option>
+        <option value="US">US</option>
+        <option value="UK">UK</option>
+    </select>
+    <p id="msg" class="text-danger" style="display: none;">Vui lòng nhập thông tin</p>
+    <script type="text/javascript">
+        // Lấy giá trị của input với ID "input-fullname" và lưu vào biến. Ghi log giá trị của input ra console khi phím được nhấn xuống.
+        function enterKeyDown() {
+            var input = document.getElementById("input-fullname");
+            var inputValue = input.value;
+            console.log(`Key down ${inputValue}`);
+        }
+
+        // Lấy giá trị của input từ tham số event và lưu vào biến. Ghi log giá trị của input ra console khi phím được nhả.
+        // Nếu phím Enter (mã 13) được nhấn và độ dài của giá trị ít hơn 6 ký tự, hiển thị thông báo yêu cầu nhập tên có độ dài tối thiểu 6 ký tự.
+        function enterKeyUp(event) {
+            var input_fullname = event.target.value;
+            /*Giải thích event.target.value
+            event.target trỏ đến PHẦN TỬ HTML mà sự kiện xảy ra trên đó.
+            Ví dụ, nếu bạn gõ phím vào trong một ô input, event.target sẽ là phần tử <input> đó.
+            event.target.value là GIÁ TRỊ hiện tại của phần tử mà sự kiện xảy ra. 
+
+           =>> Trong trường hợp này, nó sẽ là giá trị văn bản bên trong ô input khi bạn gõ phím.*/
+            console.log(`Key up ${input_fullname}`);
+
+            if (event.keyCode == 13 && input_fullname.length < 6) {
+                var msg = document.getElementById("msg");
+                msg.innerHTML = "Vui lòng nhập tên có độ dài tối thiểu 6 ký tự";
+                msg.style.display = "block";
+            } else {
+                var msg = document.getElementById("msg");
+                msg.style.display = "none";
+            }
+        }
+
+        // Ghi log giá trị của select ra console khi giá trị thay đổi
+        function selectChange(event) {
+            var change = event.value;
+            console.log(change);
+        }
+        //event.target là phần tử input mà bạn đang gõ phím vào.
+        //event.target.value là giá trị hiện tại của phần tử input đó.
+        //event.keyCode là mã của phím vừa được nhả ra.
+        //==>>> Trong trường hợp này, nó kiểm tra xem phím Enter (mã 13) có được nhấn hay không và độ dài của giá trị input.
+
+        /*Hàm sự kiện (event handler) là một hàm hoặc phương thức được thiết kế để xử lý các sự kiện xảy ra trong một ứng dụng.
+        Sự kiện là bất kỳ hành động nào mà người dùng hoặc hệ thống thực hiện,
+        chẳng hạn như nhấp chuột, nhấn phím, di chuyển chuột, tải trang, v.v.
+        VD :onkeydown="enterKeyDown()" thì "enterKeyDown() " là hàm sự kiện .s
+          */
+
+        /*[[event]]là một đối tượng được tự động truyền vào hàm sự kiện bởi trình duyệt khi sự kiện xảy ra.
+        Nó chứa thông tin chi tiết về sự kiện và phần tử mục tiêu (event.target) mà sự kiện xảy ra trên đó.
+        
+       "event.target"là thuộc tính của đối tượng sự kiện (event object) trong JavaScript, nó THAM CHIẾU ĐẾN PHẦN TỬ HTML mà sự kiện đó đã xảy ra.
+        Nói cách khác,EVENT.TARGET LÀ PHẦN TỬ MỤC TIÊU MÀ NGƯỜI DÙNG TƯƠNG TÁC GÂY RA SỰ KIỆN.
+        
+        [[this]] là từ khóa đặc biệt trong JavaScript, tham chiếu đến đối tượng mà hàm hiện tại là một thuộc tính của nó. 
+         Trong hàm sự kiện, this thường tham chiếu đến phần tử HTML mà sự kiện được gắn vào.*/
+    </script>
+
+</body>
+
+</html>

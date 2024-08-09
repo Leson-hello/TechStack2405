@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id = "heading">Demo Object</h1>
+    <h2 id = "countdown">10</h2>
+    <h2><span id = "minute">10</span>:<span id = "second">00</span></h2>
+    <script type="text/javascript">
+            // var b ={
+            //     name:"Lê Thanh Sơn",
+            //     age: 18,
+            //     address: "Ha Noi"
+            // }
+            // alert(b.name);
+            // b.address = "Da Nang";//Thay đổi địa chỉ .
+            // alert(b.address);
+            // alert(b['address']);
+            // // cái mà các bạn nhìn thấy về 1 đối tượng --> thực ra là chúng ta nhìn thấy các thông tin của đối tượng đó
+
+            // // chuyển 1 phần tử bên html -> 1 object bên js --> muốn thay đổi viêc hiển thị phải thay đổi giá trị các thuộc tính bên trong
+            
+
+            // // 1. chuyển 1 phần tử bên html -> 1 object bên js
+            // var h1 = document.getElementById("heading");
+            //  // 2. thay đổi gì bên hiển thị thì tác động vào object của js
+            //  // h.innerText = "Xin chao cac ban";
+
+            //  h1.innerHTML = "<i> Xin chao cac ban</i>";
+            //  // "<i>" là in nghiêng.
+            //  //innerHTML (property) InnerHTML.innerHTML: string(Cần giải thích )
+             
+            //  h1.style.color = "red";
+            //  h1.style.transform = "scale(1)";// Phóng to kích thước chữ
+            //  h1.style.backgroundColor = "orange"
+             
+
+             //Đếm ngược 10 phút
+             var min = 10;
+             var sec = 0;
+             var timer = setInterval(timerCountdown,1000);
+             function timerCountdown(){
+                var minutes = document.getElementById("minute");
+                var seconds = document.getElementById("second");
+                /*Các biến minutes và seconds nhận giá trị là các phần tử HTML với id tương ứng (minute và second). 
+                Điều này cho phép bạn thao tác với các phần tử HTML này thông qua JavaScript. Đây không phải là việc tạo ra đối tượng mới,
+                mà là lấy các phần tử đã tồn tại trong tài liệu HTML và lưu trữ chúng trong các biến để dễ dàng truy cập và cập nhật.*/
+                // Cập nhật hiển thị số phút và giây
+                minutes.innerHTML = min < 10 ? "0"+min :min;
+                seconds.innerHTML = sec < 10 ? "0"+sec :sec;
+                /*innerHTML là một thuộc tính của đối tượng DOM (Document Object Model) trong JavaScript. 
+                Nó cho phép bạn truy cập hoặc thay đổi nội dung HTML bên trong một phần tử.
+                (Cái phần "chữ viết" trong thẻ ý :))))*/
+                sec --;
+                if(sec < 0 ){
+                    sec = 59;
+                    min --;
+                }
+                if(min < 0 ){
+                    clearInterval(timer);
+                }
+                
+                
+             }
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/menu.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+        </div>
+    </header>
+<!-- menu -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="menu" id="menuList">
+            </ul>
+        </div>
+    </nav>
+
+<!-- list-products -->
+    <main class="container ">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 mb-5">
+                    <input type="text" class="input_search" onkeyup="searchProduct(event)" placeholder="Search....">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row" id="list-products">
+        </div>
+    </main>
+
+    <script type="text/javascript">
+        var url = `https://dummyjson.com/products/category-list`;
+        // step 1: call api --> get data
+        fetch(url).then(function (result) {
+            // console.log(result);
+            //Trong đoạn mã JavaScript của bạn, vấn đề chính là bạn không trả về (return) kết quả từ phương thức result.json(),
+            // do đó giá trị của result trong lời gọi then thứ hai không có giá trị, dẫn đến undefined
+            return result.json(); // chuyển dữ liệu nhận được thành json (dữ liệu ban đầu ở consle.log);
+        })
+            // step 2: using data --> render html
+            .then(function (result) {
+                console.log(result);//Đã nhận được 1 array gồm 24 string.
+                var menu = document.getElementById("menuList");
+                for (var item of result) {
+                    var item_html = `<li class="item">
+                                 <a href="/buoi15category.html?id=${item}">${item}</a>
+                                 </li>`;
+                    menu.innerHTML += item_html;
+                }
+            })
+
+        // URL -> chứa data cần dùng dạng JSON  -> Rest api (HTTP Service) 
+        // có 2 cách: 1- sử dụng callback function   cách 2- sử dụng xử lý bất đồng bộ
+        /*call back function là sử dụng dữ liệu có đượctừ function 1 dùng cho function 2
+        VD: Từ [fetch(url).then(function(result)]  đến [ then(function(result)]*/
+
+        //Hàng hóa
+        var url2 = `https://dummyjson.com/products`;
+        fetch(url2).then(function (result2) {
+            console.log(result2); // In ra dữ liệu JSON để kiểm tra
+            return result2.json();
+        })
+            .then(function (result2) {
+                var shop = document.getElementById("list-products");
+                console.log(result2);
+                for (var item2 of result2.products) {
+                    var item2_html =
+                        ` 
+                    <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                <img src="${item2.thumbnail}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">${item2.title}</h5>
+                <p class="card-text">${item2.description}</p>
+                <a href="#" onclick="addToCart(${item2.id})" class="btn btn-primary">Add to cart</a>
+                  <a href="/buoi13_detail.html?id=${item2.id}" class="btn btn-primary">Detail</a>
+                    </div>
+                    </div>
+               </div>`;
+                    shop.innerHTML += item2_html;
+                }
+            }
+            )
+
+        function searchProduct(event) {
+            var keyword = event.target.value;
+            var url_search = `https://dummyjson.com/products/search?q=${keyword}`;
+            fetch(url_search).then(function (url_search) {
+                return url_search.json();
+            })
+            .then(function(url_search){
+                var shopSearch = document.getElementById("list-products");
+                shopSearch.innerHTML = ''; // Làm sạch kết quả cũ trước khi hiển thị kết quả mới
+                console.log(url_search);
+                for(var itemSearch of url_search.products){
+                    var itemSearchResult =       ` 
+                    <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                <img src="${itemSearch.thumbnail}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">${itemSearch.title}</h5>
+                <p class="card-text">${itemSearch.description}</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    </div>
+               </div>`;
+               shopSearch.innerHTML += itemSearchResult;
+                }
+            })
+        }
+        /*[[[onkeyup ]]là một sự kiện (event) trong HTML và JavaScript được kích hoạt khi người dùng nhả (release) một phím trên bàn phím. 
+        Sự kiện này thường được sử dụng để xử lý các hành động sau khi người dùng đã gõ xong một ký tự hoặc khi họ hoàn thành việc nhập liệu.*/
+    </script>
+
+</body>
+
+</html>
