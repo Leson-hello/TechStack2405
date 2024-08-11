@@ -57,11 +57,15 @@
                 var menu = document.getElementById("menuList");
                 for (var item of result) {
                     var item_html = `<li class="item">
-                                 <a href="/buoi15category.html?id=${item}">${item}</a>
+                                 <a href="./buoi15category.html?id=${item}">${item}</a>
+                                 
                                  </li>`;
                     menu.innerHTML += item_html;
                 }
             })
+            /*Hoặc nếu bạn muốn đoạn mã này hoạt động cả khi chạy trên local
+             và khi triển khai trên GitHub Pages, bạn có thể sử dụng đường dẫn tương đối như sau:
+             <a href="./buoi15category.html?id=${item}">${item}</a> */
 
         // URL -> chứa data cần dùng dạng JSON  -> Rest api (HTTP Service) 
         // có 2 cách: 1- sử dụng callback function   cách 2- sử dụng xử lý bất đồng bộ

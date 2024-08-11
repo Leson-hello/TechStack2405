@@ -30,10 +30,12 @@
     </main>
 
     <script type="text/javascript">
-        //lấy data trên URL
+        //lấy data trên URL QUAN TRỌNG
         const urlQuery = window.location.search;// lấy đc string sau domain
         const urlParams = new URLSearchParams(urlQuery);// chuyển string thành dang object param
         var dataId = urlParams.get("id");
+        
+        ///
         var url = `https://dummyjson.com/products/${dataId}`;
         var url2 = `https://dummyjson.com/products/category/${dataId}`;
         fetch(url2).then(function (result2) {
