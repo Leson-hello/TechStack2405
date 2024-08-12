@@ -1,0 +1,196 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.summary-box {
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-check-label a {
+    color: #ff6600;
+}
+
+.btn-warning {
+    background-color: #ff6600;
+    border-color: #ff6600;
+}
+
+.btn-warning:hover {
+    background-color: #cc5200;
+    border-color: #cc5200;
+}
+
+a {
+    color: #333;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#shipping-header {
+    background-color: #333; /* Dark gray or black background */
+    color: #fff; /* White text */
+    padding: 10px; /* Padding around the text */
+    margin: 0; /* Remove default margin */
+    font-weight: bold; /* Bold text */
+    font-size: 1.25rem; /* Slightly larger text */
+    border-radius: 4px; /* Rounded corners (optional) */
+}
+
+.table-form {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    border-spacing: 10px 15px; /* Adds space between rows and columns */
+}
+
+.form-control {
+    margin-bottom: 15px; /* Adds space below each input field */
+}
+
+.col-lg-8.col-md-10.mx-auto {
+    background-color: #f2f2f2; /* Light gray background */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light gray border */
+}
+
+.summary-box {
+    background-color: #ffffff; /* White background for summary box */
+    padding: 20px;
+    border: 1px solid #ddd; /* Light gray border for summary box */
+    border-radius: 5px; /* Rounded corners for summary box */
+}
+
+.form-container {
+    background-color: #ffffff; /* White background for form */
+    padding: 20px; /* Space between the form border and content */
+    border: 1px solid #ddd; /* Light gray border for form */
+    border-radius: 5px; /* Rounded corners for form */
+}
+
+.form-background {
+    background-color: #ffffff; /* White background */
+    padding: 20px; /* Space inside the border */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light gray border */
+}
+
+/* Custom container and row styling to match the desired layout */
+.container1 {
+    background-color: #f9f9f9; /* Background color to match form section */
+    padding: 20px; /* Padding to ensure spacing */
+    margin-left: -14px;
+    margin-right: -15px;
+    background-color: #f2f2f2;
+}
+
+.container1 .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items at the same level */
+    margin-top: 20px; /* Space at the top to match the example image */
+}
+
+.container1 .col-6 {
+    display: flex;
+    align-items: center;
+    font-size: 14px; /* Smaller font size for "* Required Fields" */
+    color: #666; /* Gray color to match the label style */
+}
+
+.container1 .col-4 {
+    display: flex;
+    right: 0;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 0;
+}
+
+
+.container1 .col-4 .btn {
+    padding: 17px 5px;
+    font-size: 16px; /* Button font size */
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase text for button */
+    background-color: #ff6600; /* Button background color */
+    border-color: #ff6600; /* Button border color */
+    color: #fff; /* Button text color */
+}
+
+.container1 .col-4 .btn:hover {
+    background-color: #cc5200; /* Hover background color */
+    border-color: #cc5200; /* Hover border color */
+}
+.summary-box {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 0px;
+    border: 1px solid #ddd;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.summary-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    background-color: gray; /* Light gray background color */
+    margin-bottom: 15px;
+    padding: 10px 15px; /* Padding all around */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #ddd; /* Bottom, left, and right borders */
+    text-transform: uppercase; /* Make text uppercase */
+}
+
+
+.summary-content {
+    font-size: 16px;
+}
+
+.arrival-info {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+
+.cart-item {
+    margin-bottom: 15px;
+}
+
+.item-name {
+    font-weight: bold;
+}
+
+.edit-cart-link {
+    color: #ff6600; /* Orange color */
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.shipping-info h6 {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.shipping-info p {
+    font-size: 14px;
+    color: #333;
+}
+
+.shipping-info a {
+    color: #ff6600; /* Orange color */
+    text-decoration: underline;
+}
+
+
+#shipping-header {
+    margin-right: -15px;
+    margin-left: -16px;
+}

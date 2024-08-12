@@ -1,122 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipping Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/checkout.css">
 </head>
+
 <body>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-8">
-                <h3>1. SHIPPING</h3>
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h3 class="mb-3 row" id="shipping-header">1. SHIPPING</h3>
                 <form>
-                    <div class="form-group">
-                        <label for="firstName">First Name*</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="">
+                    <div class="container form-background">
+                        <table class="table-form">
+                            <tr>
+                                <td><label for="firstName">First Name*</label></td>
+                                <td><input type="text" class="form-control" id="firstName" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td><label for="lastName">Last Name*</label></td>
+                                <td><input type="text" class="form-control" id="lastName" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td><label for="postalCode">Postal Code*</label></td>
+                                <td><input type="text" class="form-control" id="postalCode" placeholder="___ ___"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="address1">Address Line 1*</label></td>
+                                <td>
+                                    <input type="text" class="form-control" id="address1" placeholder="">
+                                    <small class="form-text text-muted">We do not ship to P.O. boxes</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="address2">Address Line 2 (Optional)</label></td>
+                                <td><input type="text" class="form-control" id="address2" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td><label for="municipality">Municipality*</label></td>
+                                <td><input type="text" class="form-control" id="municipality" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td><label for="province">Province/Territory*</label></td>
+                                <td>
+                                    <select class="form-control" id="province">
+                                        <option>Select a province</option>
+                                        <option>Province 1</option>
+                                        <option>Province 2</option>
+                                        <!-- Add more provinces as needed -->
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="country">Country/Region</label></td>
+                                <td>
+                                    <select class="form-control" id="country" disabled>
+                                        <option>Canada</option>
+                                    </select>
+                                    <a href="#" class="small">Change Country/Region</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <label>Select Delivery Method</label><br>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="deliveryMethod" id="standardDelivery" value="standard" checked="">
+                                        <label class="form-check-label" for="standardDelivery">Standard FREE</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="deliveryMethod" id="expressDelivery" value="express">
+                                        <label class="form-check-label" for="expressDelivery">Express CAD 40.00</label>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td><label for="phone">Shipping Phone*</label></td>
+                                <td><input type="text" class="form-control" id="phone" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">Email*</label></td>
+                                <td><input type="email" class="form-control" id="email" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="saveInfo">
+                                        <label class="form-check-label" for="saveInfo">Join NikePlus and save your delivery details for faster checkout.</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="consent">
+                                        <label class="form-check-label" for="consent">I have read and consent to eShopWorld processing my information in accordance with the <a href="#">Privacy Statement</a> and <a href="#">Cookie Policy</a>.</label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    
                     </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name*</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="postalCode">Postal Code*</label>
-                        <input type="text" class="form-control" id="postalCode" placeholder="___ ___">
-                    </div>
-                    <div class="form-group">
-                        <label for="address1">Address Line 1*</label>
-                        <input type="text" class="form-control" id="address1" placeholder="">
-                        <small class="form-text text-muted">We do not ship to P.O. boxes</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="address2">Address Line 2 (Optional)</label>
-                        <input type="text" class="form-control" id="address2" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="municipality">Municipality*</label>
-                        <input type="text" class="form-control" id="municipality" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="province">Province/Territory*</label>
-                        <select class="form-control" id="province">
-                            <option>Select a province</option>
-                            <option>Province 1</option>
-                            <option>Province 2</option>
-                            <!-- Add more provinces as needed -->
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">Country/Region</label>
-                        <select class="form-control" id="country" disabled>
-                            <option>Canada</option>
-                        </select>
-                        <a href="#" class="small">Change Country/Region</a>
-                    </div>
-                    <div class="form-group">
-                        <label>Select Delivery Method</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="deliveryMethod" id="standardDelivery" value="standard" checked>
-                            <label class="form-check-label" for="standardDelivery">Standard FREE</label>
+                    
+                 
+                    <!--  -->
+                    <nav class="container">
+                        <div class="container1">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-6 d-flex align-items-center">
+                                    <span>* Required Fields</span>
+                                </div>
+                                <div class="col-4 mb-6">
+                                    <button type="submit" class="btn btn-warning btn-block" id="button">CONTINUE TO BILLING</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="deliveryMethod" id="expressDelivery" value="express">
-                            <label class="form-check-label" for="expressDelivery">Express CAD 40.00</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Shipping Phone*</label>
-                        <input type="text" class="form-control" id="phone" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email*</label>
-                        <input type="email" class="form-control" id="email" placeholder="">
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="saveInfo">
-                        <label class="form-check-label" for="saveInfo">Join NikePlus and save your delivery details for faster checkout.</label>
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="consent">
-                        <label class="form-check-label" for="consent">I have read and consent to eShopWorld processing my information in accordance with the <a href="#">Privacy Statement</a> and <a href="#">Cookie Policy</a>.</label>
-                    </div>
-                    <button type="submit" class="btn btn-warning btn-block">Continue to Billing</button>
+                    </nav>
+                    
+                        <!--  -->
                 </form>
+                
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-8 mx-auto">
+                <!-- Summary Section -->
                 <div class="summary-box">
-                    <h4>SUMMARY</h4>
-                    <div class="d-flex justify-content-between">
-                        <span>Subtotal</span>
-                        <span>CAD 210.00</span>
+                    <div class="summary-header">
+                        <h5 class="summary-title">SUMMARY</h5>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <span>Shipping & Handling</span>
-                        <span>FREE</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <span>Taxes</span>
-                        <span>CAD 31.50</span>
-                    </div>
-                    <div class="d-flex justify-content-between font-weight-bold">
-                        <span>Total</span>
-                        <span>CAD 241.50</span>
-                    </div>
-                    <hr>
-                    <div>
-                        <h5>In Your Cart (1)</h5>
-                        <p>Jordan Mars 270 Men's Shoe<br>Size: US 12<br>Qty: 1</p>
-                        <span class="font-weight-bold">CAD 210.00</span>
-                        <a href="#" class="d-block mt-2">Edit Cart</a>
-                    </div>
-                    <hr>
-                    <div>
-                        <h6>SHIPPING & DELIVERY</h6>
-                        <p>Orders are delivered on business days (Monday-Friday) excluding public holidays. <a href="#">See details</a></p>
+                    <div class="summary-content">
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span>CAD 210.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Shipping & Handling</span>
+                            <span>FREE</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Taxes</span>
+                            <span>CAD 31.50</span>
+                        </div>
+                        <div class="d-flex justify-content-between font-weight-bold">
+                            <span>Total</span>
+                            <span>CAD 241.50</span>
+                        </div>
                     </div>
                 </div>
+            
+                <!-- Cart Details Section -->
+                <div class="summary-box mt-3">
+                    <h5 class="summary-title">In Your Cart (1)</h5>
+                    <div class="arrival-info">Arrives 18/11 - 26/11</div>
+                    <div class="d-flex align-items-center cart-item">
+                        <img width="80" src="images/fan.png" alt="Jordan Mars 270 Men's Shoe" />
+                        <div class="ml-3">
+                            <p class="mb-0 item-name">Jordan Mars 270 Men's Shoe</p>
+                            <p class="mb-0">Style#: CD7070-007</p>
+                            <p class="mb-0">Size: US 12</p>
+                            <p class="mb-0">Qty: 1</p>
+                            <span class="font-weight-bold d-block mt-2 text-danger">CAD 210.00</span>
+                            <a href="#" class="d-block mt-2 edit-cart-link">Edit Cart</a>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Shipping & Delivery Section -->
+                <div class="summary-box mt-3">
+                    <h6 style="font-size: large; color:black; font-weight: bold;">SHIPPING & DELIVERY</h6>
+                    <p>Orders are delivered on business days (Monday-Friday) excluding public holidays. <a href="#">See details</a></p>
+                </div>
             </div>
+            
+        
+
         </div>
     </div>
 
@@ -124,4 +185,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
