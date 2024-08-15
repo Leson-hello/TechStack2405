@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+
+        #category-list {
+            padding: 0;
+            background-color: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        #category-items {
+            padding: 0;
+        }
+
+        .category-item {
+            cursor: pointer;
+            color: #333333;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .category-item:hover,
+        .category-item.active {
+            background-color: #e0e0e0;
+        }
+
+        .category-item img {
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+
+        .category-item .details {
+            flex-grow: 1;
+        }
+
+        .category-item .date {
+            font-size: 12px;
+            color: #888;
+        }
+
+        #image-display {
+            padding: 20px;
+        }
+
+        #image-display img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .navbar-toggler {
+            margin: 10px;
+        }
+
+        @media (max-width: 768px) {
+            #category-list {
+                display: none;
+            }
+
+            #category-list.show {
+                display: block;
+                position: absolute;
+                z-index: 10;
+                background-color: white;
+            }
+        }
+
+        /* Background color for the navbar */
+        .navbar {
+            background-color: #6200ea;
+        }
+
+        /* Style for the brand and icons */
+        .navbar-brand,
+        .navbar-nav .nav-link,
+        .navbar-toggler svg {
+            color: #fff;
+        }
+
+        /* Adjust the alignment and spacing */
+        .navbar-brand {
+            margin-left: 10px;
+        }
+
+        .navbar-toggler {
+            margin-right: 10px;
+        }
+
+        .d-flex {
+            align-items: center;
+        }
+
+        /* Hover effects */
+        .navbar-brand:hover,
+        .navbar-nav .nav-link:hover,
+        .navbar-toggler svg:hover {
+            color: #ddd;
+        }
+
+        /* Ensure SVGs are visible */
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Custom styles to center icons */
+
+        .ms-auto {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            /* Adjust the gap as needed */
+        }
+
+        /* Điều chỉnh khoảng cách của icon tìm kiếm */
+        .nav-link:nth-child(1) svg {
+            margin-right: 5px;
+            /* Tăng hoặc giảm giá trị này để điều chỉnh khoảng cách */
+        }
+
+        /* Điều chỉnh khoảng cách của ba dấu chấm dọc */
+        .nav-link:nth-child(2) svg {
+            margin-right: 8px;
+            /* Tăng hoặc giảm giá trị này để điều chỉnh khoảng cách */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex align-items-center">
+            <!-- Menu icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg>
+
+            <!-- Brand (Photos) closer to the menu icon -->
+            <a class="navbar-brand" href="#">Photos</a>
+            <!-- Icons on the right side -->
+            <div class="ms-auto d-flex">
+                <a href="#" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                </a>
+                <a href="#" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-12 col-md-3 bg-light" id="category-list">
+                <ul id="category-items" class="list-unstyled">
+                    <!-- Categories will be dynamically added here -->
+                </ul>
+            </div>
+            <!-- Main content -->
+            <div class="col-12 col-md-9" id="image-display">
+                <div class="d-flex align-items-center flex-wrap">
+                    <!-- Back Arrow -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-arrow-left" viewBox="0 0 16 16" style="margin-right: 8px;">
+                        <path fill-rule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                    </svg>
+                    <!-- Title -->
+                    <p class="mb-0" style="font-size: 24px;">Kiwis</p>
+                    <!-- Kebab Menu -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-three-dots-vertical ms-auto" viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                    </svg>
+                </div>
+                <div id="images-container" class="mt-3 d-flex flex-wrap">
+                    <!-- Images will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data stored in LocalStorage
+        const photoData = {
+            "Kiwis": ["images/kiwi.jpg", "images/kiwi5.jpg", "images/kiwi4.jpg"],
+            "Lemons": ["images/lemon1.jpg", "images/lemon2.jpg", "images/lemon3.jpg"],
+            "Strawberries": ["images/strawberry1.jpg", "images/strawberry2.jpg", "images/strawberry3.jpg"],
+            "Figs": ["images/fig4.jpg", "images/fig3.jpg", "images/fig2.jpg"],
+            "Nectarines": ["images/nectarine1.jpg", "images/nectarine2.jpg", "images/nectarine3.jpg"],
+            "Watermelons": ["images/watermelon1.jpg", "images/watermelon2.jpg", "images/watermelon3.jpg"]
+        };
+
+        localStorage.setItem('photos', JSON.stringify(photoData));
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const categories = JSON.parse(localStorage.getItem('photos'));
+            const categoryList = document.getElementById('category-items');
+
+            for (let category in categories) {
+                let categoryItem = document.createElement('li');
+                categoryItem.classList.add('media', 'category-item', 'my-4');
+                categoryItem.innerHTML = `
+                    <img class="align-self-center mr-3" src="${categories[category][0]}" alt="${category} image" style="width: 64px; height: 64px;">
+                    <div class="media-body">
+                      <h5 class="mt-0 mb-1">${category}</h5>
+                      <p>Collection of high resolution photos of ${category}.</p>
+                    </div>
+                    <div class="date">May 8</div>
+                `;
+                categoryItem.onclick = function () {
+                    displayImages(category);
+                    setActiveCategory(this);
+                };
+                categoryList.appendChild(categoryItem);
+            }
+
+            // Display images of the first category by default
+            const firstCategory = Object.keys(categories)[0];
+            displayImages(firstCategory);
+            setActiveCategory(categoryList.children[0]);
+        });
+
+        function displayImages(category) {
+            const categories = JSON.parse(localStorage.getItem('photos'));
+            const imageContainer = document.getElementById('images-container');
+            imageContainer.innerHTML = ''; // Clear previous images
+
+            categories[category].forEach(image => {
+                let imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.classList.add('img-fluid', 'm-2');
+                imageContainer.appendChild(imgElement);
+            });
+        }
+
+        function setActiveCategory(element) {
+            const categoryItems = document.querySelectorAll('.category-item');
+            categoryItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

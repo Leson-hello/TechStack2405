@@ -115,3 +115,74 @@ condition ? expr1 : expr2
 
 Làm giao diện trước sau đó mới có dữ liệu 
 //Node Js. react
+**Quy tắc tự động (Auto-Placement Rules) trong CSS Grid** là cách mà trình duyệt tự động đặt các phần tử lưới (grid items) vào các ô lưới (grid cells) khi bạn không chỉ định rõ ràng vị trí của chúng bằng các thuộc tính như `grid-row-start`, `grid-row-end`, `grid-column-start`, hoặc `grid-column-end`.
+
+### Cách thức hoạt động của Auto-Placement:
+
+Khi bạn tạo một lưới và không chỉ định vị trí cụ thể cho một hoặc nhiều phần tử trong lưới, trình duyệt sẽ tự động sắp xếp các phần tử này vào các ô lưới có sẵn theo thứ tự xuất hiện của chúng trong mã HTML. Đây là cách hoạt động cụ thể:
+
+1. **Quét hàng từ trên xuống dưới:**
+   - Trình duyệt sẽ bắt đầu điền các phần tử từ ô đầu tiên (hàng đầu tiên, cột đầu tiên) và tiếp tục theo thứ tự từ trái qua phải, sau đó xuống hàng tiếp theo.
+
+2. **Quét từ trái sang phải:**
+   - Nếu một hàng đã được điền đầy đủ, trình duyệt sẽ chuyển sang hàng tiếp theo và tiếp tục điền từ cột đầu tiên.
+
+3. **Điền vào các ô trống:**
+   - Nếu có bất kỳ ô nào đã được điền bằng tay (bằng các thuộc tính `grid-row-start`, `grid-column-start`, v.v.), trình duyệt sẽ bỏ qua ô đó và tiếp tục điền vào ô trống kế tiếp.
+
+4. **Không chồng chéo (Non-overlapping):**
+   - Auto-placement đảm bảo rằng các phần tử sẽ không chồng chéo lên nhau. Trình duyệt sẽ chỉ điền vào các ô trống, tránh các ô đã bị chiếm bởi các phần tử khác.
+
+### Ví dụ về Auto-Placement:
+
+Giả sử bạn có một cấu trúc lưới đơn giản như sau:
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+}
+
+.item1 {
+  grid-column-start: 2;
+}
+
+.item2, .item3, .item4 {
+  /* No specific positioning */
+}
+```
+
+```html
+<div class="container">
+  <div class="item1"></div>
+  <div class="item2"></div>
+  <div class="item3"></div>
+  <div class="item4"></div>
+</div>
+```
+
+- **`item1`**: Được chỉ định bắt đầu ở cột 2, hàng 1. Nó sẽ chiếm ô [Hàng 1, Cột 2].
+- **`item2`**: Trình duyệt sẽ điền phần tử này vào ô trống đầu tiên có sẵn, là [Hàng 1, Cột 1].
+- **`item3`**: Tiếp theo, phần tử này sẽ điền vào ô trống tiếp theo, là [Hàng 1, Cột 3].
+- **`item4`**: Cuối cùng, phần tử này sẽ được điền vào ô đầu tiên của hàng 2, là [Hàng 2, Cột 1].
+
+Kết quả:
+
+```
++-----------+-----------+-----------+
+| item2     | item1      | item3     |
++-----------+-----------+-----------+
+| item4     |           |           |
++-----------+-----------+-----------+
+|           |           |           |
++-----------+-----------+-----------+
+```
+
+### **Kết luận:**
+Auto-Placement Rules là cách mà CSS Grid tự động phân bổ các phần tử trong lưới
+ mà không cần bạn phải chỉ định vị trí cụ thể cho từng phần tử.
+ Điều này giúp đơn giản hóa quá trình sắp xếp và làm cho việc tạo bố cục trở nên linh hoạt hơn. 
+ Tuy nhiên, nếu bạn cần kiểm soát chính xác vị trí của từng phần tử, bạn có thể sử dụng các thuộc tính như 
+ `grid-row-start`, `grid-column-start`, và các thuộc tính tương tự.
