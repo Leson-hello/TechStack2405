@@ -186,3 +186,42 @@ Auto-Placement Rules là cách mà CSS Grid tự động phân bổ các phần 
  Điều này giúp đơn giản hóa quá trình sắp xếp và làm cho việc tạo bố cục trở nên linh hoạt hơn. 
  Tuy nhiên, nếu bạn cần kiểm soát chính xác vị trí của từng phần tử, bạn có thể sử dụng các thuộc tính như 
  `grid-row-start`, `grid-column-start`, và các thuộc tính tương tự.
+
+ Dưới đây là giải thích về lý do tại sao sử dụng `localStorage` với JSON, và mối quan hệ giữa chúng:
+
+### **LocalStorage và JSON:**
+
+1. **LocalStorage:**
+   - **Định nghĩa:** `localStorage` là một API trong trình duyệt web cho phép lưu trữ dữ liệu trên máy tính của người dùng dưới dạng key-value. Dữ liệu được lưu trữ dưới dạng chuỗi (string).
+   - **Tính năng:** Dữ liệu lưu trữ trong `localStorage` sẽ tồn tại ngay cả khi người dùng đóng trình duyệt hoặc khởi động lại máy tính, cho phép giữ lại thông tin giữa các phiên làm việc.
+
+2. **JSON:**
+   - **Định nghĩa:** JSON (JavaScript Object Notation) là một định dạng dữ liệu nhẹ, dễ đọc và ghi, thường được sử dụng để truyền dữ liệu giữa máy chủ và trình duyệt web. JSON định dạng dữ liệu dưới dạng đối tượng và mảng.
+   - **Tính năng:** JSON không phải là kiểu dữ liệu trong JavaScript mà là một định dạng. Để làm việc với JSON trong JavaScript, bạn thường phải chuyển đổi giữa đối tượng JavaScript và chuỗi JSON.
+
+### **Tại Sao Sử Dụng LocalStorage Với JSON?**
+
+1. **LocalStorage Chỉ Lưu Trữ Dữ Liệu Dưới Dạng Chuỗi:**
+   - `localStorage` không thể lưu trữ dữ liệu dưới dạng đối tượng hoặc mảng trực tiếp. Dữ liệu phải được chuyển đổi thành chuỗi trước khi lưu trữ.
+
+2. **Chuyển Đổi Đối Tượng JavaScript Sang Chuỗi JSON:**
+   - Để lưu trữ đối tượng hoặc mảng trong `localStorage`, bạn cần phải chuyển đổi nó thành chuỗi JSON. Điều này được thực hiện bằng cách sử dụng phương thức `JSON.stringify()`.
+   - Ví dụ:
+     ```javascript
+     const user = { name: "Sơn", age: 14 };
+     localStorage.setItem('user', JSON.stringify(user));
+     ```
+
+3. **Chuyển Đổi Chuỗi JSON Trở Lại Thành Đối Tượng:**
+   - Khi bạn cần lấy dữ liệu từ `localStorage` và sử dụng nó dưới dạng đối tượng JavaScript, bạn cần phải chuyển đổi chuỗi JSON trở lại thành đối tượng. Điều này được thực hiện bằng cách sử dụng phương thức `JSON.parse()`.
+   - Ví dụ:
+     ```javascript
+     const user = JSON.parse(localStorage.getItem('user'));
+     console.log(user.name); // "Sơn"
+     ```
+
+### **Tóm Tắt:**
+
+- **LocalStorage** chỉ có thể lưu trữ dữ liệu dưới dạng chuỗi. Vì vậy, để lưu trữ các đối tượng hoặc mảng, bạn cần chuyển đổi chúng thành chuỗi JSON.
+- **JSON** là một định dạng dữ liệu giúp chuyển đổi giữa đối tượng JavaScript và chuỗi, cho phép bạn lưu trữ và lấy dữ liệu từ `localStorage` dễ dàng.
+- Việc kết hợp `localStorage` và JSON cho phép bạn lưu trữ các cấu trúc dữ liệu phức tạp (như đối tượng và mảng) một cách hiệu quả trong trình duyệt web.
