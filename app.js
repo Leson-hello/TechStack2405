@@ -1,3 +1,13 @@
+// Đảm bảo chỉ lưu thông tin tài khoản vào localStorage nếu chưa có
+if (!localStorage.getItem('users')) {
+    const users = {
+        "user1": "pass1",
+        "user2": "pass2",
+        "user3": "pass3"
+    };
+    localStorage.setItem('users', JSON.stringify(users));
+}
+
 document.getElementById('form')?.addEventListener('submit', function(event) {
     event.preventDefault();
     
