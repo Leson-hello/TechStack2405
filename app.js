@@ -1,4 +1,4 @@
-// Đảm bảo chỉ lưu thông tin tài khoản vào localStorage nếu chưa có
+// Đảm bảo chỉ lưu thông tin tài khoản vào localStorage nếu chưa có GIÚP CHẠY trên GIT HUB
 if (!localStorage.getItem('users')) {
     const users = {
         "user1": "pass1",
@@ -19,7 +19,6 @@ document.getElementById('form')?.addEventListener('submit', function(event) {
     if (users[username] && users[username] === password) {
         const loginTime = new Date().getTime();  // Lưu thời gian đăng nhập hiện tại
         localStorage.setItem('currentUser', username);
-        localStorage.setItem(`loggedIn-${username}`, 'true');
         localStorage.setItem('loginTime', loginTime); // Lưu thời gian đăng nhập
         window.location.href = 'buoi13demoajax_GOC.html';
     } else {
@@ -30,14 +29,14 @@ document.getElementById('form')?.addEventListener('submit', function(event) {
 function checkLoginStatus() {
     const loginTime = localStorage.getItem('loginTime');
     const currentTime = new Date().getTime();
-    const maxSessionDuration = 60000;//  1 phút = 60 * 1000 = 60,000 mili giây
+    const maxSessionDuration = 60000; // 1 phút = 60 * 1000 = 60,000 mili giây
 
-    if (localStorage.getItem('currentUser') && localStorage.getItem('loggedIn-' + localStorage.getItem('currentUser')) === 'true') {
-        if (currentTime - loginTime < maxSessionDuration) {
+    if (localStorage.getItem('currentUser')) {
+        if (loginTime && (currentTime - loginTime < maxSessionDuration)) {
             // Phiên đăng nhập hợp lệ, người dùng có thể tiếp tục truy cập
             return true;
         } else {
-            // Phiên đăng nhập đã hết hạn, chuyển hướng về trang đăng nhập
+            // Phiên đăng nhập đã hết hạn hoặc không có thông tin đăng nhập, chuyển hướng về trang đăng nhập
             logout();
             return false;
         }
@@ -50,13 +49,13 @@ function checkLoginStatus() {
 function logout() {
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
-        localStorage.removeItem(`loggedIn-${currentUser}`);
+        localStorage.removeItem('currentUser');
     }
-    localStorage.removeItem('currentUser');
     localStorage.removeItem('loginTime');
     window.location.href = 'login.html';
 }
 
+// Kiểm tra trạng thái đăng nhập khi tải trang
 if (window.location.pathname.endsWith('buoi13demoajax_GOC.html')) {
     checkLoginStatus();
 }
