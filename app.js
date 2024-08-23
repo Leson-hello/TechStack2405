@@ -1,4 +1,4 @@
-// Đảm bảo chỉ lưu thông tin tài khoản vào localStorage nếu chưa có GIÚP CHẠY trên GIT HUB
+// Đảm bảo chỉ lưu thông tin tài khoản vào localStorage nếu chưa có
 if (!localStorage.getItem('users')) {
     const users = {
         "user1": "pass1",
@@ -20,6 +20,7 @@ document.getElementById('form')?.addEventListener('submit', function(event) {
         const loginTime = new Date().getTime();  // Lưu thời gian đăng nhập hiện tại
         localStorage.setItem('currentUser', username);
         localStorage.setItem('loginTime', loginTime); // Lưu thời gian đăng nhập
+        window.history.replaceState({}, document.title, "buoi13demoajax_GOC.html");
         window.location.href = 'buoi13demoajax_GOC.html';
     } else {
         alert('Tên người dùng hoặc mật khẩu không đúng.');
@@ -58,4 +59,12 @@ function logout() {
 // Kiểm tra trạng thái đăng nhập khi tải trang
 if (window.location.pathname.endsWith('buoi13demoajax_GOC.html')) {
     checkLoginStatus();
+}
+
+// Kiểm tra trạng thái đăng nhập khi tải trang login
+if (window.location.pathname.endsWith('login.html')) {
+    if (checkLoginStatus()) {
+        window.history.replaceState({}, document.title, "buoi13demoajax_GOC.html");
+        window.location.href = 'buoi13demoajax_GOC.html';
+    }
 }

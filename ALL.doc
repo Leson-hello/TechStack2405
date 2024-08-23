@@ -225,3 +225,86 @@ Auto-Placement Rules là cách mà CSS Grid tự động phân bổ các phần 
 - **LocalStorage** chỉ có thể lưu trữ dữ liệu dưới dạng chuỗi. Vì vậy, để lưu trữ các đối tượng hoặc mảng, bạn cần chuyển đổi chúng thành chuỗi JSON.
 - **JSON** là một định dạng dữ liệu giúp chuyển đổi giữa đối tượng JavaScript và chuỗi, cho phép bạn lưu trữ và lấy dữ liệu từ `localStorage` dễ dàng.
 - Việc kết hợp `localStorage` và JSON cho phép bạn lưu trữ các cấu trúc dữ liệu phức tạp (như đối tượng và mảng) một cách hiệu quả trong trình duyệt web.
+
+Ngoài sự kiện `submit`, còn rất nhiều sự kiện khác mà bạn có thể sử dụng trong JavaScript để xử lý các hành động khác nhau của người dùng hoặc hệ thống. Dưới đây là một số sự kiện phổ biến khác:
+
+----------------------------------------------------------SỰ KIỆN-----------------------------------------------------------------
+### 1. **Sự kiện chuột (Mouse Events)**
+   - **`click`**: Xảy ra khi người dùng nhấn vào một phần tử.
+   - **`dblclick`**: Xảy ra khi người dùng nhấn đúp (nhấn hai lần nhanh chóng) vào một phần tử.
+   - **`mousedown`**: Xảy ra khi người dùng nhấn chuột xuống một phần tử.
+   - **`mouseup`**: Xảy ra khi người dùng thả nút chuột ra khỏi một phần tử.
+   - **`mousemove`**: Xảy ra khi người dùng di chuyển chuột qua một phần tử.
+   - **`mouseenter`**: Xảy ra khi con trỏ chuột di chuyển vào một phần tử.
+   - **`mouseleave`**: Xảy ra khi con trỏ chuột di chuyển ra khỏi một phần tử.
+
+### 2. **Sự kiện bàn phím (Keyboard Events)**
+   - **`keydown`**: Xảy ra khi một phím bất kỳ trên bàn phím được nhấn xuống.
+   - **`keyup`**: Xảy ra khi một phím bất kỳ trên bàn phím được thả ra.
+   - **`keypress`**: Xảy ra khi một phím ký tự (chữ cái, số, ký tự đặc biệt) được nhấn xuống (không còn phổ biến, nên dùng `keydown`).
+
+### 3. **Sự kiện form (Form Events)**
+   - **`input`**: Xảy ra khi giá trị của một `input`, `textarea` hoặc `select` thay đổi.
+   - **`change`**: Xảy ra khi giá trị của một phần tử form thay đổi và người dùng rời khỏi phần tử đó.
+   - **`focus`**: Xảy ra khi một phần tử form nhận được tiêu điểm (được chọn để nhập dữ liệu).
+   - **`blur`**: Xảy ra khi một phần tử form mất tiêu điểm.
+
+### 4. **Sự kiện tài liệu (Document Events)**
+   - **`DOMContentLoaded`**: Xảy ra khi nội dung HTML của trang đã được tải và phân tích cú pháp hoàn chỉnh.
+   - **`load`**: Xảy ra khi toàn bộ trang web, bao gồm tất cả hình ảnh và tài nguyên bên ngoài khác, đã được tải hoàn tất.
+   - **`unload`**: Xảy ra khi người dùng rời khỏi trang (ví dụ, đóng tab trình duyệt).
+   - **`resize`**: Xảy ra khi kích thước cửa sổ trình duyệt thay đổi.
+   - **`scroll`**: Xảy ra khi người dùng cuộn trang web lên hoặc xuống.
+
+### 5. **Sự kiện mạng (Network Events)**
+   - **`online`**: Xảy ra khi trình duyệt kết nối mạng.
+   - **`offline`**: Xảy ra khi trình duyệt mất kết nối mạng.
+
+### 6. **Sự kiện cảm ứng (Touch Events)**
+   - **`touchstart`**: Xảy ra khi người dùng chạm vào màn hình cảm ứng.
+   - **`touchend`**: Xảy ra khi người dùng thả ngón tay ra khỏi màn hình cảm ứng.
+   - **`touchmove`**: Xảy ra khi người dùng di chuyển ngón tay trên màn hình cảm ứng.
+
+### 7. **Sự kiện kéo thả (Drag and Drop Events)**
+   - **`dragstart`**: Xảy ra khi người dùng bắt đầu kéo một phần tử.
+   - **`dragover`**: Xảy ra khi người dùng kéo một phần tử qua một vùng khác.
+   - **`drop`**: Xảy ra khi người dùng thả phần tử được kéo vào một vùng khác.
+
+Tất cả các sự kiện này có thể được sử dụng để lắng nghe và phản hồi lại các hành động của người dùng hoặc hệ thống trên trang web của bạn. Bạn có thể gán hàm xử lý sự kiện (callback function) cho bất kỳ sự kiện nào này thông qua phương thức `addEventListener`.
+---------------------------
+document.getElementById('form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // các xử lý khác...
+});
+
+Giải thích cái này ngắn ngọn
+Dòng mã này lắng nghe sự kiện `submit` trên phần tử có `id="form"`. 
+Khi người dùng nhấn nút `submit`, hàm xử lý sự kiện (callback function) được gọi.
+ Hàm này sử dụng `event.preventDefault()` để ngăn trình duyệt thực hiện hành động mặc định của form, như gửi dữ liệu lên server, 
+cho phép bạn xử lý dữ liệu theo cách riêng trước khi quyết định có gửi đi hay không.
+----------------------------------------------------
+### `addEventListener`
+`addEventListener` là một phương thức trong JavaScript dùng để lắng nghe một sự kiện cụ thể trên một phần tử HTML.
+ Khi sự kiện đó xảy ra (ví dụ: người dùng nhấn nút, di chuột, hoặc nhập liệu),
+  nó sẽ kích hoạt một hàm xử lý sự kiện (callback function).
+
+### Hàm xử lý sự kiện (callback function)
+Hàm xử lý sự kiện (callback function)là một hàm được gọi tự động khi sự kiện mà nó đang lắng nghe xảy ra. Trong ví dụ:
+
+```javascript
+document.getElementById('form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // các xử lý khác...
+});
+
+VỚI
+function(event) {
+    event.preventDefault();
+    // các xử lý khác...
+}
+```
+
+Hàm ẩn danh `function(event) { ... }` là callback function. 
+Nó sẽ được gọi ngay khi người dùng nhấn nút submit của form.
+ Bên trong hàm này, `event.preventDefault()` được gọi để ngăn chặn hành động mặc định của form, 
+như việc gửi dữ liệu mà không qua xử lý thêm.
